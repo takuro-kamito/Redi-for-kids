@@ -1,4 +1,4 @@
-# README
+# README.md
 
 # Redi for kids
 
