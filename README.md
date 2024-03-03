@@ -1,5 +1,3 @@
- README.md
-
 # Redi for kids
 
 ## サイト概要
