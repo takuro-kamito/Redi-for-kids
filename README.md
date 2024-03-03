@@ -1,6 +1,6 @@
-README.md
+### README.md
 
-# Redi for kids
+## Redi for kids
 
 # サイト概要
 
