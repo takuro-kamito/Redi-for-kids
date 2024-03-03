@@ -1,8 +1,8 @@
-### README.md
+ README.md
 
-## Redi for kids
+# Redi for kids
 
-# サイト概要
+## サイト概要
 
 ****サイトテーマ****
 
