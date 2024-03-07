@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class= "col-md-3 mt-5">
+      <h3>コミュニティ作成</h3>
+
+      <%= form_with(model: @community, url: admin_communities_path) do |f| %>
+      <%= f.hidden_field :admin_id %>
+      <div>
+        <%= f.label :name, "コミュニティ名" %> <br />
+        <%= f.text_field :name, size: 30, class: 'form-control' %>
+      </div>
+      <div>
+        <%= f.label :explanation, "説明" %><br />
+        <%= f.text_area :explanation, size: "30x5", class: 'form_control' %>
+      </div>
+      <div>
+      <%= f.submit "作成する", class: "btn btn-sm btn-success px-5 mb-2 mt-2" %>
+      </div>
+  <% end %>
+
+  <div class= "col-md-8 offset-md-1 mt-5">
+    <h3>コミュニティ一覧</h3>
+    <table class= "table">
+      <tr>
+        <th class= "col-4">コミュニティ名</th>
+        <th class= "col-7">説明</th>
+        <th class= "col-1"></th>
+      </tr>
+      <% @communities.each do |community| %>
+      <tr>
+        <td class="col-4"><%= link_to community.name, admin_communities_path(community) %></td>
+        <td class%= "col-7"><%= truncate(community.explanation, length: 100) %></td>
+        <td><%= link_to "一覧", admin_community_post_boards_path(community) %></td>
+      </tr>
+      <% end %>
+    </div>
+   </table>
+  </div>
+ </div>
+</div>

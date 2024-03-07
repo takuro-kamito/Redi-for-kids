@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
+  
+  namespace :admin do
+    get 'post_boards/index'
+  end
+  namespace :admin do
+    get 'communities/index'
+    get 'communities/show'
+    get 'communities/edit'
+  end
   namespace :user do
-    root to: "homes#top"
-    get 'homes/about'
+  root to: "homes#top"
+  get 'homes/about'
   end
   # 顧客用
   # url/users/sign_in
@@ -10,6 +19,12 @@ Rails.application.routes.draw do
     sessions: 'user/sessions'
   }
   
+  namespace :admin do
+  root to: "homes#top"
+  resources :communities, only: [:index, :create, :show, :edit, :update, :destroy] do
+  resources :post_boards, only: [:index, :destroy] 
+  end
+end
   #管理用
   # url/admin/sign_up
   devise_for :admin,  controllers: {

@@ -1,0 +1,19 @@
+<div class="container mt-5">
+  <h3 class="md-5">コミュニティ画面</h3>
+  <h4 class="row md-3">
+  <div class="col-3">コミュニティ名 :</div>
+  <div class="col-9"><%= @community.name %></div>
+  </h4>
+  
+  <h5 class="row mb-3">
+    <div class="col-3">説明</div>
+    <div class="col-9"><%= @community.explanation %></div>
+  </h5>
+  
+  <div class="row">
+    <div class="col-4">
+      <%= link_to '編集', edit_admin_community_path(@community), class: "btn btn-success mr-2" %>
+      <%= link_to '削除', admin_community_path(@community), method: :delete,data: { confirm: '本当に削除しますか？'}, class: 'btn btn-danger' %>
+    </div>
+  </div>
+</div
