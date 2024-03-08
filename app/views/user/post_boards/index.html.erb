@@ -1,0 +1,33 @@
+<div class= "container mt-5">
+  <h4><%= @community.name %>投稿はこちら！</h4>
+
+  <%= form_with(model:@post_board,url: user_community_post_boards_path(@community), local: true) do |form| %>
+  <%= form.hidden_field :community_id, value: @community.id %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  <%= form.text_area :body, size: "3x3", class: 'form-control' %>
+  <%= form.submit "投稿", class:"btn btn-success mt-2" %>
+  <% end %>
+
+  <h3 class="mt-3 mb-3 text-center"><%= @community.name %>の投稿一覧</h3>
+
+  <% @post_boards.each do |post_board| %>
+   <% if post_board.id != nil %>
+    <div class= "card">
+      <div class="card-header">
+        <div class="low">
+          <p class="col-2"><%= post_board.user.name %>より：</p>
+          <p class="col-5"><%= post_board.created_at.strftime("%Y年%m月%d日 %H時%M分") %></p>
+        </div>
+      </div>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><%= post_board.body %></li>
+      <li class= "list-group-item">
+      <% if current_user.id == post_board.user_id %> <!--ログインユーザーが投稿のユーザーと一致しているか確認　-->
+      <% link_to "削除", new_user_community_post_board_path(post_board.community_id, post_board), method: :delete, class:"btn btn-danger" %>
+      <% end %>
+      </li>
+    </ul>
+    <% end %>
+  <% end %>
+</div>

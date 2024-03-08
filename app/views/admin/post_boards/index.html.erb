@@ -1,2 +1,21 @@
-<h1>Admin::PostBoards#index</h1>
-<p>Find me in app/views/admin/post_boards/index.html.erb</p>
+<div class="container mt-5">
+  <h3><%= @community.name %>の投稿一覧</h3>
+  <table class="table mt-3">
+    <tr>
+      <th>名前</th>
+      <th>投稿</th>
+      <th>日時</th>
+      <th></th>
+    </tr>
+  <% @post_boards.each do |post_board| %>
+  <tr>
+    <tb><%= post_board.user.name %></tb>
+    <td><%= post_board.body %></td>
+    <td><%= post_board.created_at.strftime("%Y年%m月%M日 %H時%M分") %></td>
+    <td>
+      <%= link_to '削除', admin_community_post_boards_path(post_board.community, post_board), method: :delete, date: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger" %>
+    </td>
+  </tr>
+  <% end %>
+  </table>
+</div>

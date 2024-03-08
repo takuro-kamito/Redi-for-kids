@@ -1,23 +1,24 @@
 Rails.application.routes.draw do
-  
-  namespace :admin do
-    get 'post_boards/index'
-  end
-  namespace :admin do
-    get 'communities/index'
-    get 'communities/show'
-    get 'communities/edit'
-  end
-  namespace :user do
-  root to: "homes#top"
-  get 'homes/about'
-  end
   # 顧客用
   # url/users/sign_in
   devise_for :users, controllers: {
     registrations: "user/registrations",
     sessions: 'user/sessions'
   }
+  #管理用
+  # url/admin/sign_up
+  devise_for :admin,  controllers: {
+    sessions: "admin/sessions"
+  }
+  
+  namespace :user do
+  root to: "homes#top"
+  get 'homes/about'
+  resources :communities, only: [:index] do
+  resources :post_boards, onry: [:index, :create, :destroy]
+  end
+end
+  
   
   namespace :admin do
   root to: "homes#top"
@@ -25,11 +26,7 @@ Rails.application.routes.draw do
   resources :post_boards, only: [:index, :destroy] 
   end
 end
-  #管理用
-  # url/admin/sign_up
-  devise_for :admin,  controllers: {
-    sessions: "admin/sessions"
-  }
+  
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

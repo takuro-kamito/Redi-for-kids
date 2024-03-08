@@ -1,0 +1,2 @@
+module User::PostBoardsHelper
+end
