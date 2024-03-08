@@ -6,10 +6,10 @@ class Admin::PostBoardsController < ApplicationController
   end
 
   def destroy
-    @post_boards = PostBoard.find(params[:id])
+    @post_board = PostBoard.find(params[:id])
     @community = @post_board.community
     @post_board.destroy
     flash[:notice] = "削除しました。"
-    redirect_to admin_community_post_boards_path(community_id: @community.id)
+    redirect_to admin_community_post_board_path(community_id: @community.id)
   end
 end

@@ -28,7 +28,7 @@
       </tr>
       <% @communities.each do |community| %>
       <tr>
-        <td class="col-4"><%= link_to community.name, admin_communities_path(community) %></td>
+        <td class="col-4"><%= link_to community.name, admin_community_path(community) %></td>
         <td class%= "col-7"><%= truncate(community.explanation, length: 100) %></td>
         <td><%= link_to "一覧", admin_community_post_boards_path(community) %></td>
       </tr>
