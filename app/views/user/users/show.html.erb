@@ -1,2 +1,19 @@
-<h1>User::Users#show</h1>
-<p>Find me in app/views/user/users/show.html.erb</p>
+<div class="container" px-5>
+  <div class="row">
+    <div="col-md-3">
+      <h2 User info></h2>
+      <%= image_tag @user.get_profile_image(100,100) %>
+      <table class="table">
+        <tr></tr>
+        <tr>
+          <th>name</th>
+          <th><%= @user.name %></th>
+          <th>introduction</th>
+          <th><%= @user.introduction %></th>
+          <%= link_to edit_user_user_path(@user), class: "btn btn-outline-secondary btn-block" do %> 
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

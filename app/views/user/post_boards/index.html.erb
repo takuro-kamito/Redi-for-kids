@@ -1,5 +1,5 @@
 <div class= "container mt-5">
-  <h4><%= @community.name %>投稿はこちら！</h4>
+  <h4><%= @community.name %>への投稿はこちら！</h4>
 
   <%= form_with(model:@post_board,url: user_community_post_boards_path(@community), local: true) do |form| %>
   <%= form.hidden_field :community_id, value: @community.id %>
@@ -24,7 +24,7 @@
       <li class="list-group-item"><%= post_board.body %></li>
       <li class= "list-group-item">
       <% if current_user.id == post_board.user_id %> <!--ログインユーザーが投稿のユーザーと一致しているか確認　-->
-      <% link_to "削除", new_user_community_post_board_path(post_board.community_id, post_board), method: :delete, class:"btn btn-danger" %>
+      <% link_to "削除", user_community_post_board_path(post_board.community_id, post_board), method: :delete, class:"btn btn-danger" %>
       <% end %>
       </li>
     </ul>
