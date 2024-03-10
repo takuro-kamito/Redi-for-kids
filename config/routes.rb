@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get "home/about" => "homes#about" , as: "about"
   resources :users, only: [:index, :show, :edit, :update, :destroy]
   resources :communities, only: [:index] do
-  resources :post_boards, only: [:index, :create, :destroy]
+  resources :post_boards, only: [:index, :destroy]
   end
 end
 

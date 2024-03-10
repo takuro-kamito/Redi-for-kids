@@ -6,9 +6,7 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def create
-    @communities = Community.all
     @community = Community.new(community_params)
-    @community.admin_id = current_admin.id
     if @community.save
       #コミュニティの新規登録が成功開いた場合の処理
       flash[:notice] = "登録に成功しました。"
