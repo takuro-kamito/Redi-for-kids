@@ -1,0 +1,13 @@
+<h3>検索結果</h3>
+
+<% if @model == 'User' %>
+  <% @records.each do |user| %>
+    <p><%= user.name %></p>
+    <!-- その他表示したい属性や要素を追加します -->
+  <% end %>
+<% elsif @model == 'Community' %>
+  <% @records.each do |community| %>
+    <p><%= community.name %></p>
+    <!-- その他表示したい属性や要素を追加します -->
+  <% end %>
+<% end %>

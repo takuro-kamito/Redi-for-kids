@@ -13,6 +13,9 @@
         <td class="col-4"><%= community.name %></td>
         <td><%= community.explanation %></td>
         <td><%= link_to "掲示板へ", user_community_post_boards_path(community) %></td>
+         <td>
+        <%= render 'user/favorites/favorite', community: community %>
+      </td>
       </tr>
       <% end %>
     </table>
