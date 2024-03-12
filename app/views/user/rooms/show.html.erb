@@ -1,0 +1,46 @@
+<div class="title">
+  <h2>
+    <% if @another_entry %>
+      <%= "#{@another_entry.user.name}さんとのメッセージ" %>
+    <% else %>
+      他のユーザーとのメッセージが見つかりません
+    <% end %>
+  </h2>
+</div>
+
+<div class="message-box">
+  <% if @messages.present? %>
+    <% @messages.each do |m| %>
+      <% if m.user_id == current_user.id %>
+        <div class="my-message">
+          <p><%= m.body %></p>
+        </div>
+      <% else %>
+        <div class="other-message">
+          <div class="face-icon">
+            <%= image_tag m.user %>
+            <p><%= m.body %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% else %>
+    <div class="error-message">メッセージがありません。</div>
+  <% end %>
+</div>
+
+<% if @message.present? %>
+  <div class="chat-form-box">
+    <%= form_for @message, url: user_messages_path do |f| %>
+      <div class="chat-form-group">
+        <%= f.text_field :body %>
+        <%= f.hidden_field :room_id, value: @room.id %>
+        <%= f.submit "送信する" %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="error-message">
+    メッセージがありません。
+  </div>
+<% end %>

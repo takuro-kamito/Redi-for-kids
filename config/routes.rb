@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :user do
+    get 'rooms/index'
+    get 'rooms/show'
+  end
   # 顧客用
   # url/users/sign_in
   devise_for :users, skip: [:passwords], controllers: {
@@ -16,9 +20,12 @@ Rails.application.routes.draw do
   get "home/about" => "homes#about" , as: "about"
   get "search", to: "searches#search"
   resources :users, only: [:index, :show, :edit, :update, :destroy]
+  resources :messages, only: [:create]
+  resources :rooms, only: [:create, :index, :show]
   resources :communities, only: [:index] do
   resources :post_boards, only: [:index, :create, :destroy]
   resource  :favorites, only: [:create, :destroy]
+  
   end
 end
 

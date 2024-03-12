@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :post_boards, dependent: :destroy
   has_one_attached :profile_image
   has_many :favorites, dependent: :destroy
+  has_many :entries, dependent: :destroy
+  has_many :messages, dependent: :destroy
   
 def self.search_for(content, method)
     if method == 'perfect'
