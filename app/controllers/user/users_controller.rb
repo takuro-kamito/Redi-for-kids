@@ -1,5 +1,6 @@
 class User::UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show]
+  
   def index
     @users = User.all
     @user = current_user
@@ -38,12 +39,18 @@ class User::UsersController < ApplicationController
     render :edit
   end
   end
+  
+def favorites 
+    @user = User.find(params[:id])
+    favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
+    @favorite_posts = Post.find(favorites)
+    @post = Post.find(params[:id])
+  end
 
 private
 
 def user_params
   params.require(:user).permit(:name, :introduction, :profile_image)
-
 end
+end 
 
-end

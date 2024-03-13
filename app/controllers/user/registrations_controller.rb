@@ -56,7 +56,8 @@ class User::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-   
+  
+
   #   super(resource)
   # end
 

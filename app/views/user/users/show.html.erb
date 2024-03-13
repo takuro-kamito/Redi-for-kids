@@ -1,33 +1,36 @@
 <div class="container" px-5>
   <div class="row">
     <div class="col-md-3">
-      <h2>User info</h2>
-      <%= image_tag @user.get_profile_image(100,100) %>
-      <table class="table">
-        <tr>
-          <th>name</th>
-          <th><%= @user.name %></th>
-          <th>introduction</th>
-          <th><%= @user.introduction %></th>
-        </tr>
-      </table>
-      <%= link_to edit_user_user_path(@user), class: "btn btn-outline-secondary btn-block" do %>
-        編集する
-      <% end %>
-
-      <% unless @user.id == current_user.id %>
-        <% if @is_room == true %>
-          <%= link_to "メッセージ", user_room_path(@room_id) %>
-        <% else %>
-          <% @room ||= Room.new %>
-          <%= form_for @room, url: user_rooms_path do |f| %>
-            <%= fields_for @entry do |e| %>
-              <%= e.hidden_field :user_id, value: @user.id %>
-            <% end %>
-            <%= f.button "メッセージを送る", type: "submit" %>
-          <% end %>
+  <%= image_tag @user.get_profile_image(250, 250), class: "rounded-circle mx-auto d-block" %>
+  
+  <h2 class="text-center text-uppercase font-weight-bold">Info</h2>
+  
+  <table class="table table-striped table-bordered">
+    <tr>
+      <th>ニックネーム</th>
+      <td><%= @user.name %></td>
+    </tr>
+    <tr>
+      <th>紹介文</th>
+      <td><%= @user.introduction %></td>
+    </tr>
+  </table>
+  
+  <%= link_to edit_user_user_path(@user), class: "btn btn-primary btn-block" do %>
+    編集する
+  <% end %>
+  
+  <% unless @user.id == current_user.id %>
+    <% if @is_room == true %>
+      <%= link_to "メッセージ", user_room_path(@room_id) %>
+    <% else %>
+      <% @room ||= Room.new %>
+      <%= form_for @room, url: user_rooms_path do |f| %>
+        <%= fields_for @entry do |e| %>
+          <%= e.hidden_field :user_id, value: @user.id %>
         <% end %>
+        <%= f.button "メッセージを送る", type: "submit" %>
       <% end %>
-    </div>
-  </div>
+    <% end %>
+  <% end %>
 </div>

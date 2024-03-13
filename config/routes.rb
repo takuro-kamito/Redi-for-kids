@@ -24,15 +24,18 @@ Rails.application.routes.draw do
   root to: "homes#top"
   get "home/about" => "homes#about" , as: "about"
   get "search", to: "searches#search"
-  resources :users, only: [:index, :show, :edit, :update, :destroy]
+  resources :users, only: [:index, :show, :edit, :update, :destroy]do
+    member do
+    get :favorites 
+      end 
+    end 
   resources :messages, only: [:create]
   resources :rooms, only: [:create, :index, :show]
   resources :communities, only: [:index] do
   resources :post_boards, only: [:index, :create, :destroy]
   resource  :favorites, only: [:create, :destroy]
-  
-  end
 end
+  end
 
 
   namespace :admin do
