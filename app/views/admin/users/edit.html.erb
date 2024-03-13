@@ -1,0 +1,44 @@
+<div class="container p-4">
+  <div class="row">
+    <div class="col">
+      <h2 class="mb-4 text-center"><%= @user.name %>さんの会員情報編集</h2>
+        <div class="d-flex align-items-center pb-3">
+        <table class="mt-4">
+          <tr>
+            <th class="p-2">会員ID</th>
+            <td class="pr-5"></td>
+            <td class="p-2"><%= @user.id %></td>
+          </tr>
+          <tr>
+            <th class="p-2">氏名</th>
+            <td></td>
+            <td class="p-2"><%= @user.name %></td>
+          </tr>
+          <tr>
+            <th class="p-2">フリガナ</th>
+            <td></td>
+            <td class="p-2"><%= @user.name_kana %></td>
+          </tr>
+          <tr>
+            <th class="p-2">メールアドレス</th>
+            <td></td>
+            <td class="p-2"><%= @user.email %></td>
+          </tr>
+          <tr>
+          <%= form_with model: @user, url: admin_user_path(@user), method: :patch do |f| %>
+            <th class="p-2">会員ステータス</th>
+            <td></td>
+            <th class="p-2"><%= f.radio_button :is_active, "true" %>有効</th>
+            <th class="p-2"><%= f.radio_button :is_active, "false" %>退会</th>
+          </tr>
+          <tr>
+            <th class="p-2"></th>
+            <td></td>
+            <th class="p-2"><%= f.submit "変更を保存", class: "btn btn-success" %></th>
+          </tr>
+        </table>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>

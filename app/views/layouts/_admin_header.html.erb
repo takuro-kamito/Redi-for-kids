@@ -12,19 +12,14 @@
               管理人ページ
             </div>
           <li>
-            <!--%=  link_to path, class: 'nav-link text-light' do %>ページ作成後記述-->
+            <%=  link_to admin_users_path, class: 'nav-link text-light' do %>
               <i class="fa-solid fa-users"></i> 会員一覧
-            <!--% end %>-->
+            <% end %>
           </li>
           <li>
             <%=  link_to admin_communities_path ,class: 'nav-link text-light' do %>
               <i class="fa-solid fa-comments"></i></i> Community作成
             <% end %>
-          </li>
-          <li>
-            <!--%= link_to admin_community_post_boards_path(@community), class: 'nav-link text-light' do %>-->
-            <i class="fa-solid fa-file-pen"></i></i>Community編集
-            <!--% end %>-->
           </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
