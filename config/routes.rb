@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
-  end
-  namespace :user do
-    get 'rooms/index'
-    get 'rooms/show'
-  end
+  
   # 顧客用
   # url/users/sign_in
   devise_for :users, skip: [:passwords], controllers: {
@@ -24,7 +16,8 @@ Rails.application.routes.draw do
   root to: "homes#top"
   get "home/about" => "homes#about" , as: "about"
   get "search", to: "searches#search"
-  resources :users, only: [:index, :show, :edit, :update, :destroy]do
+  resources :posts
+  resources :users, only: [:index, :show, :edit, :update, :destroy] do
     member do
     get :favorites 
       end 

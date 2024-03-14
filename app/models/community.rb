@@ -1,6 +1,7 @@
 class Community < ApplicationRecord
   has_many :post_boards, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :posts
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?

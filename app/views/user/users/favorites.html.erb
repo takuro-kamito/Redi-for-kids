@@ -1,11 +1,12 @@
 <table class="table">
         <tbody>
-          <% @favorite_posts.each do |post| %>
-          <tr>
-            <td>
-              <%= link_to post.title, post_path(@post) %>
-            </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+  <% @favorite_posts.each do |community| %>
+  <tr>
+    <% community = favorite_communities.find_by(post.community_id) %>
+    <td class="col-4"><%= community.name %></td>
+    <td><%= community.explanation %></td>
+    <td></td>
+  </tr>
+  </tbody>
+  </table>
+<% end %>

@@ -42,10 +42,12 @@ class User::UsersController < ApplicationController
   
 def favorites 
     @user = User.find(params[:id])
-    favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
-    @favorite_posts = Post.find(favorites)
-    @post = Post.find(params[:id])
-  end
+    @favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
+    @favorite_posts = Post.where(@favorites)
+    # @post = Post.find(params[:id])
+    @favorite_communities = Community.where(id: @favorite_posts.pluck(:community_id))
+    
+end
 
 private
 
