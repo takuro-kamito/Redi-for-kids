@@ -1,12 +1,14 @@
 <table class="table">
-        <tbody>
-  <% @favorite_posts.each do |community| %>
   <tr>
-    <% community = favorite_communities.find_by(post.community_id) %>
-    <td class="col-4"><%= community.name %></td>
-    <td><%= community.explanation %></td>
-    <td></td>
+    <th class="col-4">コミュニティ名</th>
+    <th class="col-4">説明</th>
   </tr>
+  <tbody>
+    <% @favorite_communities.each do |community| %>
+      <tr>
+        <td class="col-4"><%= community.name %></td>
+        <td><%= community.explanation %></td>
+      </tr>
+    <% end %>
   </tbody>
-  </table>
-<% end %>
+</table>

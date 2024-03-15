@@ -11,7 +11,21 @@ class User::SearchesController < ApplicationController
   else
     @records  = Community.search_for(@content, @method)
   end
-
-  render 'search_results'
+   render 'search_results'
+  end
+ 
+ def genre_search
+   puts params
+  @genre = Genre.find(params[:id])
+  @communities = Community.where(genre_id: @genre.id)
+  @genres = Genre.all
  end
-end 
+  
+  def community_search
+    @word = params[:word]
+    @model = params[:model]
+    if @model == "community"
+      @communites = Community.looks(params[:search], params[:word])
+    end
+  end
+end

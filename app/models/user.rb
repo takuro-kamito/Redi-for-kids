@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :entries, dependent: :destroy
   has_many :messages, dependent: :destroy
-  has_many :posts
+  # has_many :posts
   
 def self.search_for(content, method)
     if method == 'perfect'

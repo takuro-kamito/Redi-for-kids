@@ -21,6 +21,11 @@
               <i class="fa-solid fa-comments"></i></i> Community作成
             <% end %>
           </li>
+           <li>
+            <%=  link_to  admin_genres_path ,class: 'nav-link text-light' do %>
+              <i class="fa-solid fa-comments"></i></i> Genre編集
+            <% end %>
+          </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
               <i class="fas fa-sign-out-alt"></i> Log out

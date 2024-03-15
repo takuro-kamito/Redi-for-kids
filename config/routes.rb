@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  namespace :admin do
+    get 'genres/index'
+  end
   # 顧客用
   # url/users/sign_in
   devise_for :users, skip: [:passwords], controllers: {
@@ -11,11 +14,14 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations,:passwords], controllers: {
     sessions: "admin/sessions"
   }
-
+  
+  
+ 
   namespace :user do
   root to: "homes#top"
   get "home/about" => "homes#about" , as: "about"
-  get "search", to: "searches#search"
+  get '/user/genre/search/:id', to: '/user/searches#genre_search', as: 'user_genre_search'
+  get "search" => "searches#search"
   resources :posts
   resources :users, only: [:index, :show, :edit, :update, :destroy] do
     member do
@@ -34,8 +40,10 @@ end
   namespace :admin do
   root to: "homes#top"
   resources :users, only: [:index, :show, :edit, :update]
+  resources :genres, only: [:index, :create, :edit, :update]
   resources :communities, only: [:index, :create, :show, :edit, :update, :destroy] do
   resources :post_boards, only: [:index, :destroy]
+  
   end
 end
 

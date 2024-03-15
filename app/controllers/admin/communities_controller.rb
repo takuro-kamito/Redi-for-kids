@@ -7,6 +7,7 @@ class Admin::CommunitiesController < ApplicationController
 
   def create
     @community = Community.new(community_params)
+    @communities = Community.all  # @communitiesに値をセットする
     if @community.save
       #コミュニティの新規登録が成功開いた場合の処理
       flash[:notice] = "登録に成功しました。"
@@ -14,6 +15,7 @@ class Admin::CommunitiesController < ApplicationController
     else
       #コミュニティが失敗した場合の処理
       flash.now[:alert] = "登録に失敗しました。"
+     
       render :index
     end
   end
