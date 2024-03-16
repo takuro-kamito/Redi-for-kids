@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   # has_many :posts
   
+  
 def self.search_for(content, method)
     if method == 'perfect'
       User.where(name: content)

@@ -39,20 +39,29 @@ class User::UsersController < ApplicationController
     render :edit
   end
   end
+
+  
+def withdraw
+  @user = current_user
+  @user.destroy
+  reset_session
+  flash[:notice] = "退会処理を実行しました"
+  redirect_to user_root_path
+end
   
 def favorites 
     @user = User.find(params[:id])
     @favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
     @favorite_posts = Post.where(id: @favorites)
     # @post = Post.find(params[:id])
-     @favorite_communities = Community.where(id: @favorite_posts.pluck(:community_id))
+    @favorite_communities = Community.where(id: @favorite_posts.pluck(:community_id))
+    @posts = Post.select("*, posts.id as post_id").joins(:community).order(created_at: :desc)
     
 end
 
 private
 
 def user_params
-  params.require(:user).permit(:name, :introduction, :profile_image)
+  params.require(:user).permit(:name, :introduction, :profile_image, :is_active)
 end
-end 
-
+end

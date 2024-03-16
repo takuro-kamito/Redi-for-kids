@@ -1,6 +1,12 @@
+ <% if flash[:notice] %>
+  <div class="alert alert-danger">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 <div class="container p-4">
   <div class="row">
     <div class="col">
+      <%= flash[:notice] %>
       <h2 class="mb-4 text-center">ログイン</h2>
       <strong class="ml-3 mt-3">会員の方はこちらからログイン</strong>
         <%= form_with model: @user, url: user_session_path do |f| %>
