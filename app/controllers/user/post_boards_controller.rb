@@ -1,4 +1,5 @@
 class User::PostBoardsController < ApplicationController
+  
   def index
     @community = Community.find(params[:community_id])
     @post_board = PostBoard.new
@@ -32,7 +33,7 @@ class User::PostBoardsController < ApplicationController
     private
 
     def post_board_params
-      params.require(:post_board).permit(:user_id, :community_id, :body)
+      params.require(:post_board).permit(:user_id, :community_id, :body, :favorite_id)
     end
 end
 

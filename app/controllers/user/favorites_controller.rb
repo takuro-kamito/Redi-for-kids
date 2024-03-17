@@ -7,10 +7,10 @@ class User::FavoritesController < ApplicationController
   end 
   
   def destroy
-    @community = Community.find(params[:community_id])
-    favorites = current_user.favorites.find_by(community_id: @community.id)
-    favorites.destroy
-  end 
+  @community = Community.find(params[:community_id])
+  favorites = current_user.favorites.find_by(community_id: @community.id)
+  favorites.destroy 
+  end
   
   
 end

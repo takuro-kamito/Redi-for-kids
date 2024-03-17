@@ -15,7 +15,6 @@ class User::SearchesController < ApplicationController
   end
  
  def genre_search
-   puts params
   @genre = Genre.find(params[:id])
   @communities = Community.where(genre_id: @genre.id)
   @genres = Genre.all

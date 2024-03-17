@@ -1,2 +1,45 @@
-<h1>User::Homes#about</h1>
-<p>Find me in app/views/user/homes/about.html.erb</p>
+<div class="contents">
+  <%= image_tag "panda2.png",:size =>'450x600',class: 'pomuo' %>
+<div class="balloon3-left">
+  <p>初めまして<br>
+  なんでんかんでんにようこそ<br>
+  なんでも話そうね-!<br>
+  まずは、登録してね！<br>
+  気になるコミュニティに入ってね</p>
+  
+</div>
+</div>
+<head>
+  <style>
+.balloon3-left {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0 1.5em 15px;
+  padding: 0 5px;
+  width: 700px;
+  height: 240px;
+  line-height: 50px;
+  text-align: center;
+  color: #FFF;
+  font-size: 16px;
+  font-weight: bold;
+  background: #ffcc75;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.balloon3-left:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -25px;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-right: 15px solid #ffcc75;
+  z-index: 0;
+}
+.pomuo{
+      padding: 20px 10px;
+    }
+ </style>
+</head>

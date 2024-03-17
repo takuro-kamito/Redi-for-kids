@@ -1,36 +1,85 @@
- <% if flash[:notice] %>
-  <div class="alert alert-danger">
-    <%= flash[:notice] %>
-  </div>
-<% end %>
 <div class="container p-4">
   <div class="row">
-    <div class="col">
-      <%= flash[:notice] %>
-      <h2 class="mb-4 text-center">ログイン</h2>
-      <strong class="ml-3 mt-3">会員の方はこちらからログイン</strong>
-        <%= form_with model: @user, url: user_session_path do |f| %>
-        <table class="table table-borderless">
-          <tbody>
-            <tr>
-              <td class="pl-5">メールアドレス</td>
-              <td><%= f.email_field :email, style: "width: 400px;" %></td>
-            </tr>
-            <tr>
-              <td class="pl-5">パスワード</td>
-              <td><%= f.password_field :password, autocomplete: "current-password", style: "width: 400px;" %></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><%= f.submit "ログイン", class:"btn btn-primary", style: "width: 150px;" %></td>
-            </tr>
-          </tbody>
-        </table>
-        <% end %>
-      <div class="col mt-4">
-        <b><div class="mt-4">会員登録がお済みでない方</div></b>
-        <%= render "user/shared/links" %>
+    <div class="col-4">
+      <div class="d-flex flex-column align-items-start">
+        <div class="d-flex align-items-start justify-content-start">
+          <%= image_tag "panda2.png", size: '450x600', class: 'pomuo' %>
+          <div class="balloon3-left ml-4">
+            <p>初めまして<br>
+            なんでんかんでんにようこそ<br>
+            なんでも話そうね-!<br>
+            まずは、登録してね！<br>
+            気になるコミュニティに入ってね</p>
+          </div>
+        </div>
       </div>
+    </div>
+    <div class="col-8">
+      <% if flash[:notice] %>
+      <div class="alert alert-danger">
+        <%= flash[:notice] %>
+      </div>
+      <% end %>
+
+      <h2 class="mb-4 text-center">ログイン</h2>
+
+      <%= form_with model: @user, url: user_session_path do |f| %>
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <td class="pl-5">メールアドレス</td>
+            <td><%= f.email_field :email, style: "width: 400px;" %></td>
+          </tr>
+          <tr>
+            <td class="pl-5">パスワード</td>
+            <td><%= f.password_field :password, autocomplete: "current-password", style: "width: 400px;" %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= f.submit "ログイン", class: "btn btn-primary", style: "width: 150px;" %></td>
+          </tr>
+        </tbody>
+      </table>
+      <% end %>
+
+      <div class="mt-4">
+        <strong>会員の方はこちらからログイン</strong>
+      </div>
+
+      <%= render "user/shared/links" %>
     </div>
   </div>
 </div>
+
+<style>
+.balloon3-left {
+  position: relative;
+  display: inline-block;
+  margin-top: 1.5em;
+  padding: 0 5px;
+  width: 300px;
+  height: 300px;
+  line-height: 50px;
+  text-align: center;
+  color: #FFF;
+  font-size: 16px;
+  font-weight: bold;
+  background: #ffcc75;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.balloon3-left:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -25px;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-left: 15px solid #ffcc75;
+  z-index: 0;
+}
+.pomuo{
+  padding: 10px;
+}
+</style>

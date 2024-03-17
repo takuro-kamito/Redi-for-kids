@@ -1,6 +1,6 @@
 class User::UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show]
-  
+
   def index
     @users = User.all
     @user = current_user
@@ -24,7 +24,7 @@ class User::UsersController < ApplicationController
       @entry = Entry.new
     end
     end
-  end 
+  end
 
   def edit
     @user = User.find(params[:id])
@@ -40,7 +40,7 @@ class User::UsersController < ApplicationController
   end
   end
 
-  
+
 def withdraw
   @user = current_user
   @user.destroy
@@ -48,16 +48,13 @@ def withdraw
   flash[:notice] = "退会処理を実行しました"
   redirect_to user_root_path
 end
-  
-def favorites 
+
+ def favorites
     @user = User.find(params[:id])
-    @favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
-    @favorite_posts = Post.where(id: @favorites)
-    # @post = Post.find(params[:id])
-    @favorite_communities = Community.where(id: @favorite_posts.pluck(:community_id))
-    @posts = Post.select("*, posts.id as post_id").joins(:community).order(created_at: :desc)
-    
-end
+    @favorites = Favorite.where(user_id: @user.id).pluck(:community_id)
+    @favorite_communities = Community.where(id: @favorites)
+ end
+  
 
 private
 
