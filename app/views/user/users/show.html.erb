@@ -15,13 +15,13 @@
       </div>
     </div>
     
-    <div class="col-md-7 ml-auto">
+    <div class="col-md-6 ml-auto">
       <h2 class="text-center text-uppercase font-weight-bold">My page</h2>
       <%= image_tag @user.get_profile_image(200, 200), class: "rounded-circle mx-auto d-block" %>
 
       
 
-      <table class="table table-striped table-bordered">
+      <table class="table table-striped">
         <tr>
           <th>ニックネーム</th>
           <td><%= @user.name %></td>
@@ -38,7 +38,7 @@
 
       <% unless @user.id == current_user.id %>
         <% if @is_room == true %>
-          <%= link_to "Mail", user_room_path(@room_id)  %>
+          <%= link_to "Mail List", user_room_path(@room_id)  %>
         <% else %>
           <% @room ||= Room.new %>
           <%= form_for @room, url: user_rooms_path do |f| %>
@@ -50,10 +50,10 @@
         <% end %>
       <% end %>
       <%= link_to user_favorites_community_path(@user), class: 'icon-link' do %>
-  <i class="fas fa-heart icon" style="border-radius: 50%; background-color: pink; padding: 10px;"></i>
-  <span class="tooltip">お気に入り</span>
-<% end %>
-<%= stylesheet_link_tag 'custom' %>
+       <i class="fas fa-heart icon" style="border-radius: 50%; background-color: pink; padding: 10px;"></i>
+       <span class="tooltip">お気に入り</span>
+     <% end %>
+      <%= stylesheet_link_tag 'favorite' %>
     </div>
   </div>
 </div>
