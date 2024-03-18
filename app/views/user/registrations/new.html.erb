@@ -1,11 +1,27 @@
+<div class="container p-4">
+  <div class="row">
+    <div class="col-4">
+      <div class="d-flex flex-column align-items-start">
+        <div style="text-align: left">
+          <%= image_tag "panda2.png", size: '450x600', class: 'pomuo' %>
+          <div class="balloon3-left ml-4">
+                   <p>        <br>
+                   会員の方は <br>
+                   こちらからだよ <br>
+                   クリック<br>
+                   
+            <%= render "user/shared/links" %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-8">
 <% if flash[:notice] %>
   <div class="alert alert-danger">
     <%= flash[:notice] %>
   </div>
 <% end %>
-<div class="cotainer p-4">
-  <div class="low">
-    <div ="col">
       <h2 class="md-4 text-center">新規会員登録</h2>
        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
        <%= render "user/shared/error_messages", resource: resource %>
@@ -37,15 +53,44 @@
           <tr>
             <td></td>
             <td></td>
-            <td class="p-4"><%= f.submit"新規登録", class:"btn btn-success", style: "width: 150px;" %></td>
+            <td class="p-4"><%= f.submit "サインアップ", class:"btn btn-success", style: "width: 150px;" %></td>
           </tr>
         </tbody>
       </table>
       <% end %>
-      <b><div class="mt-4">既に登録ずみの方</div></b>
-      <%= render "user/shared/links" %>
       </div>
     </div>
  </div>
+<style>
+.balloon3-left {
+  left: -160px;
+  position: absolute;
+  display: inline-block;
+  margin: 1.5em 0 1.5em 5px;
+  padding: 0 80px;
+  width: 275px;
+  height: 180px;
+  line-height: 120px
+  text-align: center;
+  color: #FFF;
+  font-size: 16px;
+  font-weight: bold;
+  background: #ffcc75;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
 
+.balloon3-left:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -26px;
+  margin-top: -20px;
+  border: 15px solid transparent;
+  border-left: 15px solid #ffcc75;
+  z-index: 0;
+}
+
+}
+</style>
 

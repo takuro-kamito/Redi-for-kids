@@ -1,37 +1,89 @@
-<div class="container" px-5>
+<div class="container p-4">
   <div class="row">
-    <div class="col-md-3">
-  <%= image_tag @user.get_profile_image(250, 250), class: "rounded-circle mx-auto d-block" %>
+    <div class="col-4">
+      <div class="d-flex flex-column align-items-start">
+        <div style="text-align: left">
+          <%= image_tag "panda2.png", size: '450x600', class: 'pomuo' %>
+          <div class="balloon3-left ml-4">
+            <p><br>
+              新規登録の方は<br>
+              こちらからだよ<br>
+              クリック<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-7 ml-auto">
+      <h2 class="text-center text-uppercase font-weight-bold">My page</h2>
+      <%= image_tag @user.get_profile_image(200, 200), class: "rounded-circle mx-auto d-block" %>
 
-  <h2 class="text-center text-uppercase font-weight-bold">Info</h2>
+      
 
-  <table class="table table-striped table-bordered">
-    <tr>
-      <th>ニックネーム</th>
-      <td><%= @user.name %></td>
-    </tr>
-    <tr>
-      <th>紹介文</th>
-      <td><%= @user.introduction %></td>
-    </tr>
-  </table>
+      <table class="table table-striped table-bordered">
+        <tr>
+          <th>ニックネーム</th>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th>紹介文</th>
+          <td><%= @user.introduction %></td>
+        </tr>
+      </table>
 
-  <%= link_to edit_user_user_path(@user), class: "btn btn-primary btn-block" do %>
-    編集する
-  <% end %>
-
-  <% unless @user.id == current_user.id %>
-    <% if @is_room == true %>
-      <%= link_to "メッセージ", user_room_path(@room_id) %>
-    <% else %>
-      <% @room ||= Room.new %>
-      <%= form_for @room, url: user_rooms_path do |f| %>
-        <%= fields_for @entry do |e| %>
-          <%= e.hidden_field :user_id, value: @user.id %>
-        <% end %>
-        <%= f.button "メッセージを送る", type: "submit" %>
+      <%= link_to edit_user_user_path(@user), class: "btn btn-primary btn-block" do %>
+        Edit profile
       <% end %>
-    <% end %>
-  <% end %>
-  <%= link_to "いいねのブックマーク", user_favorites_community_path(@user) %>
+
+      <% unless @user.id == current_user.id %>
+        <% if @is_room == true %>
+          <%= link_to "Mail", user_room_path(@room_id)  %>
+        <% else %>
+          <% @room ||= Room.new %>
+          <%= form_for @room, url: user_rooms_path do |f| %>
+            <%= fields_for @entry do |e| %>
+              <%= e.hidden_field :user_id, value: @user.id %>
+            <% end %>
+            <%= f.button "Mail", type: "submit" %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <%= link_to user_favorites_community_path(@user), class: 'icon-link' do %>
+  <i class="fas fa-heart icon" style="border-radius: 50%; background-color: pink; padding: 10px;"></i>
+  <span class="tooltip">お気に入り</span>
+<% end %>
+<%= stylesheet_link_tag 'custom' %>
+    </div>
+  </div>
 </div>
+<style>
+.balloon3-left {
+  left: -160px;
+  position: absolute;
+  display: inline-block;
+  margin: 1.5em 0 1.5em 5px;
+  padding: 0 80px;
+  width: 275px;
+  height: 180px;
+  line-height: 120px
+  text-align: center;
+  color: #FFF;
+  font-size: 16px;
+  font-weight: bold;
+  background: #ffcc75;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.balloon3-left:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -26px;
+  margin-top: -20px;
+  border: 15px solid transparent;
+  border-left: 15px solid #ffcc75;
+  z-index: 0;
+}
+</style>

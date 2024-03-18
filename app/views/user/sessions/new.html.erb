@@ -2,14 +2,16 @@
   <div class="row">
     <div class="col-4">
       <div class="d-flex flex-column align-items-start">
-        <div class="d-flex align-items-start justify-content-start">
+        <div style="text-align: left">
           <%= image_tag "panda2.png", size: '450x600', class: 'pomuo' %>
           <div class="balloon3-left ml-4">
-            <p>初めまして<br>
-            なんでんかんでんにようこそ<br>
-            なんでも話そうね-!<br>
-            まずは、登録してね！<br>
-            気になるコミュニティに入ってね</p>
+                   <p>        <br>
+                   新規登録の方は <br>
+                   こちらからだよ <br>
+                   クリック<br>
+                   
+            <%= render "user/shared/links" %><br>
+            </p>
           </div>
         </div>
       </div>
@@ -20,10 +22,8 @@
         <%= flash[:notice] %>
       </div>
       <% end %>
-
-      <h2 class="mb-4 text-center">ログイン</h2>
-
-      <%= form_with model: @user, url: user_session_path do |f| %>
+<h2 class="mb-4 text-center">ログイン</h2>
+    <%= form_with model: @user, url: user_session_path do |f| %>
       <table class="table table-borderless">
         <tbody>
           <tr>
@@ -36,30 +36,25 @@
           </tr>
           <tr>
             <td></td>
-            <td><%= f.submit "ログイン", class: "btn btn-primary", style: "width: 150px;" %></td>
+            <td><%= f.submit "ログイン", class: "btn btn-success", style: "width: 150px;" %></td>
           </tr>
         </tbody>
       </table>
       <% end %>
-
-      <div class="mt-4">
-        <strong>会員の方はこちらからログイン</strong>
-      </div>
-
-      <%= render "user/shared/links" %>
     </div>
   </div>
 </div>
 
 <style>
 .balloon3-left {
-  position: relative;
+  left: -160px;
+  position: absolute;
   display: inline-block;
-  margin-top: 1.5em;
-  padding: 0 5px;
-  width: 300px;
-  height: 300px;
-  line-height: 50px;
+  margin: 1.5em 0 1.5em 5px;
+  padding: 0 80px;
+  width: 275px;
+  height: 180px;
+  line-height: 120px
   text-align: center;
   color: #FFF;
   font-size: 16px;
@@ -73,13 +68,12 @@
   content: "";
   position: absolute;
   top: 50%;
-  right: -25px;
-  margin-top: -15px;
+  right: -26px;
+  margin-top: -20px;
   border: 15px solid transparent;
   border-left: 15px solid #ffcc75;
   z-index: 0;
 }
-.pomuo{
-  padding: 10px;
+
 }
 </style>
