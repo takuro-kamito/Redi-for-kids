@@ -12,8 +12,9 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
+root to: "user/homes#top"
   namespace :user do
-    root to: "homes#top"
+    
     get "home/about" => "homes#about" , as: "about"
     get '/user/genre/search/:id', to: '/user/searches#genre_search', as: 'user_genre_search'
     get "search" => "searches#search"
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
     get "users/:id/favorite" => "users#favorites",as: 'favorites_community'
     resources :messages, only: [:create]
     resources :rooms, only: [:create, :index, :show]
-    resources :communities, only: [:index] do
+    resources :communities, only: [:index, :show] do
     resources :post_boards, only: [:index, :create, :destroy]
     resource  :favorites, only: [:create, :destroy]
     end

@@ -1,14 +1,23 @@
-<table class="table">
-  <tr>
-    <th class="col-4">コミュニティ名</th>
-    <th class="col-4">説明</th>
-  </tr>
-  <tbody>
-    <% @favorite_communities.each do |community| %>
-      <tr>
-        <td class="col-4"><%= community.name %></td>
-        <td><%= community.explanation %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">いいねのブックマーク</h5>
+    <div class="row">
+      <% @favorite_communities.each do |community| %>
+        <div class="col-md-4">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2 text-muted"><%= community.name %></h6>
+              <p class="card-text"><%= community.explanation %></p>
+              <!-- ハートアイコンの追加 -->
+              <i class="fas fa-heart" style="color: red;"></i>
+              <!-- ブックマークアイコンの追加 -->
+              <%= link_to user_community_path(community), class: "bookmark-link" do %>
+                <i class="fas fa-bookmark"></i>
+                <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

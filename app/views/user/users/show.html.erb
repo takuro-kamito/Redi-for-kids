@@ -3,40 +3,53 @@
     <div class="col-4">
       <div class="d-flex flex-column align-items-start">
         <div style="text-align: left">
-          <%= image_tag "panda2.png", size: '450x600', class: 'pomuo' %>
+          <%= image_tag "panda2.png", size: '450x500', class: 'pomuo' %>
           <div class="balloon3-left ml-4">
             <p><br>
-              新規登録の方は<br>
-              こちらからだよ<br>
-              クリック<br>
+              メンバーに<br>
+              直接メールも<br>
+              出来るよー😄<br>
+              どんどん<br>
+              交流してね👍<br>
             </p>
           </div>
         </div>
       </div>
     </div>
-    
-    <div class="col-md-6 ml-auto">
-      <h2 class="text-center text-uppercase font-weight-bold">My page</h2>
-      <%= image_tag @user.get_profile_image(200, 200), class: "rounded-circle mx-auto d-block" %>
+   <div class="col-md-8 ml-auto">
+  <h2 class="text-center text-uppercase font-weight-bold">My page</h2>
+  <div class="text-center">
+    <%= image_tag @user.get_profile_image(200, 200), class: "rounded-circle mx-auto d-block" %>
+   <div class="d-flex justify-content-center align-items-start">
+  <div>
+    <i class="fa fa-user mr-2" style="font-size: 12px;"></i>
+  </div>
+  <div>
+    <h4 class="text-uppercase">ネーム</h4>
+    <div><%= @user.name %></div>
+  </div>
+</div>
 
-      
-
-      <table class="table table-striped">
-        <tr>
-          <th>ニックネーム</th>
-          <td><%= @user.name %></td>
-        </tr>
-        <tr>
-          <th>紹介文</th>
-          <td><%= @user.introduction %></td>
-        </tr>
-      </table>
-
-      <%= link_to edit_user_user_path(@user), class: "btn btn-primary btn-block" do %>
-        Edit profile
-      <% end %>
-
-      <% unless @user.id == current_user.id %>
+<div class="d-flex justify-content-center align-items-start mb-2">
+  <div>
+    <i class="fa fa-envelope mr-2" style="font-size: 12px;"></i>
+  </div>
+  <div>
+    <h4 class="text-uppercase">メールアドレス</h4>
+    <div><%= @user.email %></div>
+  </div>
+</div>
+  </div>
+  <hr>
+  <div class="text-right">
+    <%= link_to edit_user_user_path(@user) do %>
+      <i class="fa fa-pencil-alt" style="font-size: 16px;"></i> 
+    <% end %>
+    <%= link_to user_favorites_community_path(@user), class: 'icon-link' do %>
+       <i class="fas fa-heart icon" style="border-radius: 50%; background-color: pink; padding: 10px;"></i>
+       <span class="tooltip">お気に入り</span>
+     <% end %>
+    <% unless @user.id == current_user.id %>
         <% if @is_room == true %>
           <%= link_to "Mail List", user_room_path(@room_id)  %>
         <% else %>
@@ -49,13 +62,10 @@
           <% end %>
         <% end %>
       <% end %>
-      <%= link_to user_favorites_community_path(@user), class: 'icon-link' do %>
-       <i class="fas fa-heart icon" style="border-radius: 50%; background-color: pink; padding: 10px;"></i>
-       <span class="tooltip">お気に入り</span>
-     <% end %>
-      <%= stylesheet_link_tag 'favorite' %>
-    </div>
+      
   </div>
+  <h4 class="text-center text-uppercase">introduction</h4>
+  <p class="text-center"><%= @user.introduction %></p>
 </div>
 <style>
 .balloon3-left {

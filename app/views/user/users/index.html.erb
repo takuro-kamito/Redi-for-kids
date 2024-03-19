@@ -12,7 +12,7 @@
     <tbody>
       <% @users.each do |user| %>
         <tr>
-          <td><%= image_tag user.get_profile_image(140,140) %></td>
+          <td><%= image_tag user.get_profile_image(140, 140), class: "rounded-circle mx-auto d-block" %></td>
           <td><%= user.name %></td>
           <td>
             <%= link_to "Member Info", user_user_path(user.id) %>
