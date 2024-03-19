@@ -17,7 +17,7 @@ root to: "user/homes#top"
     
     get "home/about" => "homes#about" , as: "about"
     get '/user/genre/search/:id', to: '/user/searches#genre_search', as: 'user_genre_search'
-    get "search" => "searches#search"
+    get '/search', to: 'searches#search', as: 'search'
     get 'users/unsubscribe' => 'users#unsubscribe'
     patch '/users/withdraw' => 'users#withdraw'
     resources :posts

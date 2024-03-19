@@ -3,17 +3,32 @@ class User::SearchesController < ApplicationController
   
   def search
   @model = params[:model]
-  @content = params[:content]
+  @search_form = params[:search_form]
   @method = params[:method]
+  @word = params[:word]
   
   if @model == 'User'
-    @records = User.search_for(@content, @method)
+    if @method == "partial_match"
+      @records = User.where("name LIKE ?", "%#{@search_form}%")
+    elsif @method == "forward_match"
+      @records = User.where("name LIKE ?", "#{@search_form}%")
+    else
+      @records = User.all
+    end
   else
-    @records  = Community.search_for(@content, @method)
+    if @method == "partial_match"
+      @records = Community.where("name LIKE ?", "%#{@search_form}%")
+    elsif @method == "forward_match"
+      @records = Community.where("name LIKE ?", "#{@search_form}%")
+    else
+      @records = Community.all
+    end
   end
-   render 'search_results'
+  
+  render 'search_results'
   end
- 
+  
+   
  def genre_search
   @genre = Genre.find(params[:id])
   @communities = Community.where(genre_id: @genre.id)

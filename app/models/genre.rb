@@ -1,5 +1,5 @@
 class Genre < ApplicationRecord
-  # has_many :community
+  has_many :community
 
   validates :name, presence: true
 end
