@@ -1,13 +1,23 @@
 <h3>検索結果</h3>
 
 <% if @model == 'User' %>
-  <% @records.each do |user| %>
-    <p><%= user.name %></p>
-    <!-- その他表示したい属性や要素を追加します -->
-  <% end %>
+  <div class="list-group">
+    <% @records.each do |user| %>
+      <a href="<%= user_user_path(user.id) %>" class="list-group-item list-group-item-action">
+        <%= image_tag user.get_profile_image(100, 100), class: "rounded-circle mr-3" %>
+        <%= user.name %>
+      </a>
+    <% end %>
+  </div>
 <% elsif @model == 'Community' %>
-  <% @records.each do |community| %>
-    <p><%= community.name %></p>
-    <!-- その他表示したい属性や要素を追加します -->
-  <% end %>
+  <ul class="list-group">
+    <% @records.each do |community| %>
+      <li class="list-group-item">
+        <h5><%= community.name %></h5>
+        <p><%= community.explanation %></p>
+        <%= link_to "掲示板へ", user_community_post_boards_path(community), class: "btn btn-primary" %>
+        <!-- その他表示したい属性や要素を追加します -->
+      </li>
+    <% end %>
+  </ul>
 <% end %>

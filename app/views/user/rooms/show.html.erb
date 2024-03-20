@@ -13,13 +13,16 @@
     <% @messages.each do |m| %>
       <% if m.user_id == current_user.id %>
         <div class="my-message">
+          <div class="balloon">
           <p><%= m.body %></p>
+          <p><%= m.user.name %></p> 
+          </div>
         </div>
       <% else %>
         <div class="other-message">
-          <div class="face-icon">
-            <%= image_tag m.user %>
+          <div class="balloon">
             <p><%= m.body %></p>
+            <p><%= m.user.name %></p> 
           </div>
         </div>
       <% end %>
@@ -37,10 +40,50 @@
         <%= f.hidden_field :room_id, value: @room.id %>
         <%= f.submit "送信する" %>
       </div>
+      <%= link_to "ルームへ戻る", user_rooms_path %>
     <% end %>
   </div>
 <% else %>
-  <div class="error-message">
-    メッセージがありません。
-  </div>
+  <div class="error-message">メッセージがありません。</div>
 <% end %>
+<head>
+<style>
+  .my-message {
+  float: right; /* 右側に表示 */
+  clear: both;
+  /* 以下のスタイルは適宜調整してください */
+  width: 50%;
+  background-color: lightgrey;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.other-message {
+  float: left; /* 左側に表示 */
+  clear: both;
+  /* 以下のスタイルは適宜調整してください */
+  width: 50%;
+  background-color: lightblue;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.balloon {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  background-color: #F2F2F2;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.balloon:after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  margin-left: -10px;
+  border: 10px solid transparent;
+  border-top-color: #F2F2F2;
+}
+</head>
+</style>

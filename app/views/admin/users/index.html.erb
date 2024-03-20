@@ -18,13 +18,9 @@
             <td class="align-middle"><%= user.id %></td>
             <td class="align-middle"><%=link_to user.name, admin_user_path(user.id) %></td>
             <td class="align-middle"><%= user.email %></td>
-              <% if user.is_active == true %>
-                <td class="text-success">有効</td>
-              <% else %>
-                <td class="text-secondary">退会済</td>
+            <td class="<%= user.status == '制限中' ? 'text-warning' : 'text-success' %>"><%= user.status %></td>
+            </tr>
               <% end %>
-          </tr>
-        <% end %>
         </tbody>
       </table>
       <div class="d-flex justify-content-center">

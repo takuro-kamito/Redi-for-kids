@@ -6,11 +6,27 @@
   なんでも話そうね-!<br>
   まずは、登録してね！<br>
   気になるコミュニティに入ってね</p>
-  
+  </div>
 </div>
+  <div class="col-md-6">
+    <h3 class="my-3 p-2" style="background-color: #474343; color: white;">New Community</h3>
+    <table class="table">
+      <tbody>
+        <% @community.each do |community| %>
+          <tr class="list">
+            <td><%= community.name %></td>
+            <td><%= community.explanation %></td>
+            <% if user_signed_in? %>
+              <td>
+                <%= link_to "掲示板へ", user_community_post_boards_path(community), class: "btn btn-primary" %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
-<%= render 'user/searches/genre_search', genres: @genres %>
-<head>
   <style>
 .balloon3-left {
   position: relative;

@@ -17,8 +17,9 @@
       <%= f.submit "作成する", class: "btn btn-sm btn-success px-5 mb-2 mt-2" %>
       </div>
   <% end %>
+  </div>
 
-
+    <div class="col-md-8 offset-md-1 mt-5">
     <h3>コミュニティ一覧</h3>
     <table class= "table mt-3" >
       <tr>
@@ -30,11 +31,12 @@
       <tr>
         <td class="col-4"><%= link_to community.name, admin_community_path(community) %></td>
         <td class%= "col-7"><%= truncate(community.explanation, length: 100) %></td>
-        <td><%= link_to "一覧", admin_community_post_boards_path(community) %></td>
+        <td><%= link_to "一覧", admin_community_post_boards_path(community), class: "btn btn-sm btn-outline-dark ml-2" %></td>
       </tr>
       <% end %>
       </table>
     　</div>
     </div>
- 　</div>
+    </div>
+ 　
 　

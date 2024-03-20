@@ -34,7 +34,6 @@ root to: "user/homes#top"
   namespace :admin do
     root to: "homes#top"
     resources :users, only: [:index, :show, :edit, :update]
-    resources :genres, only: [:index, :create, :edit, :update]
     resources :communities, only: [:index, :create, :show, :edit, :update, :destroy] do
       resources :post_boards, only: [:index, :destroy]
     end

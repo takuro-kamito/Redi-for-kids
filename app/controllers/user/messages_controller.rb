@@ -7,7 +7,7 @@ def create
     if @message.save
       redirect_to user_room_path(@message.room)
     else
-      redirect_back(fallback_location: user_room_path)
+      redirect_back(fallback_location: user_message_path)
     end
 end
 
