@@ -1,15 +1,16 @@
 <div class="contents">
-  <%= image_tag "panda2.png",:size =>'450x600',class: 'pomuo' %>
+  <%= image_tag "panda2.png",:size =>'350x600',class: 'pomuo' %>
 <div class="balloon3-left">
   <p>初めまして<br>
-  なんでんかんでんにようこそ<br>
-  なんでも話そうね-!<br>
-  まずは、登録してね！<br>
-  気になるコミュニティに入ってね</p>
+  なんでんかんでんミーティングへ<br>
+  　ようこそ！<br>
+  子供の気になることをみんなで話しましょう<br>
+  まずは、気軽に登録してね！<br>
+  登録後は気になるミーティングに入って<br>
+  たくさん話をしましょう！</p>
   </div>
-</div>
-  <div class="col-md-6">
-    <h3 class="my-3 p-2" style="background-color: #474343; color: white;">New Community</h3>
+   <div class="col-md-5 ">
+    <h3 class="my-3 p-2" style="background-color: #474343; color: white;">New Meeting</h3>
     <table class="table">
       <tbody>
         <% @community.each do |community| %>
@@ -25,17 +26,23 @@
         <% end %>
       </tbody>
     </table>
+    </div>
   </div>
-</div>
   <style>
+.col-md-5 {
+  float: right; /* 右寄せにする */
+  margin-right: 80px;  /* 右側の余白を調整する */
+  width: 90%;  /* 幅を調整する */
+}
 .balloon3-left {
-  position: relative;
-  display: inline-block;
-  margin: 1.5em 0 1.5em 5px;
+  position: absolute;  /* 絶対位置指定 */
+  top: 30%;  /* 上端を中央に揃える */
+  left: 250px;  /* 左端からの距離を調整 */
+  margin-top: -150px;  /* 高さの半分をマイナスマージンで調整 */
   padding: 0 5px;
   width: 400px;
-  height: 400px;
-  line-height: 50px;
+  height: 300px;
+  line-height: 40px;
   text-align: center;
   color: #FFF;
   font-size: 16px;
