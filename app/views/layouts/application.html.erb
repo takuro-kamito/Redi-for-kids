@@ -21,6 +21,7 @@
     <div>
   <%= render 'user/searches/form' %>
    </div>
+   <body style="background-color: #FD7D33">
     <%= yield %>
   </body>
   <footer>
@@ -36,10 +37,11 @@
 <style>
 footer {
   background-color: black;
-  height: 80px;
+  height: 60px;
   position: fixed; /* フッターを下部に固定 */
   bottom: 0; /* フッターを画面の下に配置 */
   width: 100%; /* 幅を100%に設定 */
+  z-index: 5;
 }
 
 footer p {
@@ -47,4 +49,5 @@ footer p {
   text-align: center;
   line-height: 5px;  /* フッターの高さと同じ値に修正 */
 }
+
 </style>
