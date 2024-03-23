@@ -24,14 +24,27 @@
     <%= yield %>
   </body>
   <footer>
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class='container mt-5'>
   	<div class='row'>
     	<div class='mx-auto'>
-    		<p>REdi for kids CopyRight Infratop.inc</p>
+    		<p>CopyRight Infratop.inc</p>
     	</div>
     </div>
   </div>
-</div>
 </footer>
 </html>
+<style>
+footer {
+  background-color: black;
+  height: 80px;
+  position: fixed; /* フッターを下部に固定 */
+  bottom: 0; /* フッターを画面の下に配置 */
+  width: 100%; /* 幅を100%に設定 */
+}
+
+footer p {
+  color: #fff;
+  text-align: center;
+  line-height: 5px;  /* フッターの高さと同じ値に修正 */
+}
+</style>

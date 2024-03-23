@@ -14,7 +14,6 @@ Rails.application.routes.draw do
 
 root to: "user/homes#top"
   namespace :user do
-    
     get "home/about" => "homes#about" , as: "about"
     get '/user/genre/search/:id', to: '/user/searches#genre_search', as: 'user_genre_search'
     get '/search', to: 'searches#search', as: 'search'
