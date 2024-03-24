@@ -6,7 +6,7 @@
       <th>投稿</th>
       <th>日時</th>
       <th></th>
-      <%= link_to "投稿ページへ", admin_communities_path(@user) %>
+      <%= link_to "投稿ページへ", admin_communities_path(@user), class: "btn btn-primary" %>
     </tr>
   <% @post_boards.each do |post_board| %>
   <tr>
@@ -19,4 +19,56 @@
   </tr>
   <% end %>
   </table>
+  <div class="post_board_paginate">
+  <%= paginate @post_boards %>
 </div>
+</div>
+<head>
+  <style>
+.post_board_paginate{
+  width: 100%;
+  margin: auto;
+}
+
+/* ページネーション全体 */
+.pagination{
+  text-align: center;
+  display: flex;
+  justify-content: center; 
+}
+
+/* ページネーションのspan */
+.pagination span{
+  text-align: center;
+  width: 50px;
+  font-size: 20px;
+}
+
+/* ページネーションのリンク文字（a） */
+.pagination a{
+  color: #818181;
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-weight: bold;
+  padding: 10px;
+}
+
+/* ページネーションの文字にカーソルを載せた時 */
+.pagination a:hover{
+  width: 50px;
+  height: 50px;
+  background-color: #84b8eb;
+  color: #FFF;
+  border-radius: 100%;
+  padding: 10px;
+}
+
+/* 現在のページの数字についての表記 */
+.current{
+  font-weight: bold;
+  color: #84b8eb;
+  padding: 10px;
+}
+  </style>
+</head>

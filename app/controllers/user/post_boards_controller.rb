@@ -20,7 +20,7 @@ class User::PostBoardsController < ApplicationController
       render :index
     end
   end
-
+  
     def destoroy
        @post_board = PostBoards.find(params[:id]) # 削除する投稿を取得
     if @post_boad.user_id == current_user.id # ログインユーザーと投稿のユーザーが一致しているかチェック
@@ -33,7 +33,7 @@ class User::PostBoardsController < ApplicationController
     private
 
     def post_board_params
-      params.require(:post_board).permit(:user_id, :community_id, :body, :favorite_id)
+      params.require(:post_board).permit(:user_id, :community_id, :body,:favorite_id)
     end
 end
 

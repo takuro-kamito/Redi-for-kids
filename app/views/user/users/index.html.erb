@@ -15,17 +15,18 @@
           <td><%= image_tag user.get_profile_image(100, 100), class: "rounded-circle mx-auto d-block" %></td>
           <td><%= user.name %></td>
           <td>
-            <%= link_to "Member Info", user_user_path(user.id) %>
+            <%= link_to "My page", user_user_path(user.id) %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
   </div>
-</div>
-<div class="users_paginate">
+  <div class="users_paginate">
 <%= paginate @users %>
 </div>
+</div>
+
 <head>
   <style>
 .users_paginate{

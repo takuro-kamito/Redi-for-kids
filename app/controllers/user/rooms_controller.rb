@@ -9,15 +9,14 @@ class User::RoomsController < ApplicationController
 
 
   def index
-     # ログインユーザー所属ルームID取得
-     puts"Another Entries: #{@another_entries}"
-    @current_entries = current_user.entries
+     
+    @current_entries = current_user.entries  # ログインユーザー所属ルームID取得
     my_room_id = []
     @current_entries.each do |entry|
       my_room_id << entry.room.id
     end
-    # 自分のroom_idでuser_idが自分じゃないのを取得
-    @another_entries = Entry.where(room_id: my_room_id).where.not(user_id: @current_user.id)
+    
+    @another_entries = Entry.where(room_id: my_room_id).where.not(user_id: @current_user.id)  # 自分のroom_idでuser_idが自分じゃないのを取得
   end
 
   def show

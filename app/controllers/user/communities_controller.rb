@@ -1,6 +1,6 @@
 class User::CommunitiesController < ApplicationController
   def index
-    @communities = Community.all
+    @communities = Community.all.order('created_at DESC').page(params[:page]).per(6)
   end
   
   def show

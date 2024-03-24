@@ -8,8 +8,10 @@ Rails.application.routes.draw do
 
   # 管理用
   # url/admin/sign_up
-  devise_for :admin, skip: [:registrations,:passwords], controllers: {
+  devise_for :admin, skip: [:passwords], controllers: {
+    registrations: "admin/registrations",
     sessions: "admin/sessions"
+    
   }
 
 root to: "user/homes#top"
@@ -25,7 +27,7 @@ root to: "user/homes#top"
     resources :messages, only: [:create]
     resources :rooms, only: [:create, :index, :show]
     resources :communities, only: [:index, :show] do
-    resources :post_boards, only: [:index, :create, :destroy]
+    resources :post_boards, only: [:index, :create,:edit,:update,:destroy]
     resource  :favorites, only: [:create, :destroy]
     end
   end

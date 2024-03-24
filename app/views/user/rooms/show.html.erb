@@ -1,13 +1,13 @@
 <div class="title">
   <h2>
     <% if @another_entry %>
-      <%= "#{@another_entry.user.name}さんとのメッセージ" %>
+      <%= "#{@another_entry.user.name}" %>
     <% else %>
       他のユーザーとのメッセージが見つかりません
     <% end %>
   </h2>
+   <%= link_to "ルームへ戻る", user_rooms_path, class: "btn btn-primary btn-sm" %>
 </div>
-
 <div class="message-box">
   <% if @messages.present? %>
     <% @messages.each do |m| %>
@@ -24,14 +24,13 @@
             <p><%= m.body %></p>
             <p><%= m.user.name %></p> 
           </div>
-        </div>
       <% end %>
     <% end %>
   <% else %>
     <div class="error-message">メッセージがありません。</div>
   <% end %>
 </div>
-
+</div>
 <% if @message.present? %>
   <div class="chat-form-box">
     <%= form_for @message, url: user_messages_path do |f| %>
@@ -40,33 +39,39 @@
         <%= f.hidden_field :room_id, value: @room.id %>
         <%= f.submit "送信する" %>
       </div>
-      <%= link_to "ルームへ戻る", user_rooms_path %>
     <% end %>
   </div>
 <% else %>
   <div class="error-message">メッセージがありません。</div>
 <% end %>
-<head>
+
 <style>
+/*.message-box {*/
+/*  clear: both;*/
+/*  align-self: flex-start;*/
+/*  width: 100%;*/
+/*  background-color: lightblue;*/
+/*  padding: 30px;*/
+/*  margin-bottom: 20px;*/
+/*}*/
   .my-message {
-  float: right; /* 右側に表示 */
+  float: right; 
   clear: both;
-  /* 以下のスタイルは適宜調整してください */
-  width: 50%;
-  background-color: lightgrey;
-  padding: 10px;
-  margin-bottom: 10px;
+  width: -200px;
+  background-color: lightblue;
+  padding: 30px;
+  margin-bottom: 20px;
 }
 
-.other-message {
-  float: left; /* 左側に表示 */
+  .other-message {
+  float: left; 
   clear: both;
-  /* 以下のスタイルは適宜調整してください */
-  width: 50%;
+  width: 100%;
   background-color: lightblue;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 5px;
+  margin-bottom: 20px;
 }
+
 .balloon {
   position: relative;
   display: inline-block;
@@ -81,9 +86,13 @@
   position: absolute;
   bottom: -10px;
   left: 50%;
-  margin-left: -10px;
+  margin-left: -20px;
   border: 10px solid transparent;
   border-top-color: #F2F2F2;
 }
-</head>
+.chat-form-box {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
 </style>

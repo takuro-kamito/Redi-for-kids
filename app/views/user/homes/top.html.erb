@@ -1,69 +1,80 @@
 <div class="contents">
-  <%= image_tag "panda2.png",:size =>'350x600',class: 'pomuo' %>
-<div class="balloon3-left">
-  <p>初めまして<br>
-  なんでんかんでんミーティングへ<br>
-  　ようこそ！<br>
-  子供の気になることをみんなで話しましょう<br>
-  まずは、気軽に登録してね！<br>
-  登録後は気になるミーティングに入って<br>
-  たくさん話をしましょう！</p>
-  </div>
-   <div class="col-md-5 ">
-    <h3 class="my-3 p-2" style="background-color: #474343; color: white;">New Meeting</h3>
-    <table class="table">
-      <tbody>
-        <% @community.each do |community| %>
-          <tr class="list">
-            <td><%= community.name %></td>
-            <td><%= community.explanation %></td>
-            <% if user_signed_in? %>
-              <td>
-                <%= link_to "掲示板へ", user_community_post_boards_path(community), class: "btn btn-primary" %>
-              </td>
-            <% end %>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    </div>
-  </div>
-  <style>
-.col-md-5 {
-  float: right; /* 右寄せにする */
-  margin-right: 80px;  /* 右側の余白を調整する */
-  width: 90%;  /* 幅を調整する */
+  <%= image_tag "panda2.png",:size =>'700x800',class: 'pomuo' %>
+  <div class="bg_pattern Rectangles"></div>
+</div>
+
+<style>
+  .bg_pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffe9a7;
+  opacity: 0.4;
+  z-index: -1;
 }
-.balloon3-left {
-  position: absolute;  /* 絶対位置指定 */
-  top: 30%;  /* 上端を中央に揃える */
-  left: 250px;  /* 左端からの距離を調整 */
-  margin-top: -150px;  /* 高さの半分をマイナスマージンで調整 */
-  padding: 0 5px;
-  width: 400px;
-  height: 300px;
-  line-height: 40px;
-  text-align: center;
-  color: #FFF;
-  font-size: 16px;
-  font-weight: bold;
-  background: #ffcc75;
-  border-radius: 50%;
-  box-sizing: border-box;
+.Rectangles {
+  background-image:  repeating-linear-gradient(45deg, #ffc107 25%, transparent 25%, transparent 75%, #ffc107 75%, #ffc107), repeating-linear-gradient(45deg, #ffc107 25%, #ffe9a7 25%, #ffe9a7 75%, #ffc107 75%, #ffc107);
+  background-position: 0 0, 20px 20px;
+  background-size: 40px 40px;
 }
 
-.balloon3-left:before {
+/*=============
+base
+==============*/
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: YuGothic, "游ゴシック体", "Yu Gothic", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  letter-spacing: .025em;
+  line-height: 1.8;
+}
+* {
+  box-sizing: border-box;
+}
+.section {
+  max-width: 1024x;
+  margin: 0 auto;
+  padding: 100px 20px 1000px;
+}
+._a {
+  max-width: 300px;
+  margin: 0 auto;  
+}
+._a a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 2.0em 1.0em;
+  border: 1px solid #222222;
+  background: linear-gradient(to right, #ffffff 50%, #222222 50%);
+  background-size: 200% auto;
+  color: #222222;
+  font-size: 12px;
+  text-decoration: none;
+  text-align: center;
+  transition: .3s;
+  position: relative;
+}
+._a a:after {
   content: "";
   position: absolute;
-  top: 50%;
-  left: -25px;
-  margin-top: -15px;
-  border: 20px solid transparent;
-  border-right: 15px solid #ffcc75;
-  z-index: 0;
+  right: -5px;
+  bottom: -5px;
+  width: 100%;
+  height: 100%;
+  border-right: 1px solid #222222;
+  border-bottom: 1px solid #222222;
 }
-.pomuo{
-      padding: 20px 10px;
-    }
- </style>
-</head>
+._a a:hover {
+  color: #ffffff;
+  background-position: -100% 0;
+}
+</style>
+
+    

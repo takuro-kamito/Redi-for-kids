@@ -1,8 +1,8 @@
 <div class="card">
   <div class="card-body">
     <h5 class="card-title">いいねのブックマーク</h5>
+    <%= link_to "My pageへ戻る", user_user_path, class: "btn btn-primary" %>
     <div class="row">
-      <%= link_to "My pageへ戻る", user_user_path %>
       <% @favorite_communities.each do |community| %>
         <div class="col-md-4">
           <div class="card mb-3">

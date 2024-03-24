@@ -1,16 +1,16 @@
 <div class="container">
   <div class='row'>
     <div class= "col-md-3 mt-5">
-      <h3>コミュニティ作成</h3>
+      <h3>ミーティング作成</h3>
 
       <%= form_with(model: @community, url: admin_communities_path) do |f| %>
       <%= f.hidden_field :admin_id %>
       <div>
-        <%= f.label :name, "コミュニティ名" %> <br />
+        <%= f.label :name, "ミーティング名" %> <br />
         <%= f.text_field :name, size: 30, class: 'form-control' %>
       </div>
       <div>
-        <%= f.label :explanation, "説明" %><br />
+        <%= f.label :explanation, "内容" %><br />
         <%= f.text_area :explanation, size: "30x5", class: 'form_control' %>
       </div>
       <div>
@@ -20,11 +20,11 @@
   </div>
 
     <div class="col-md-8 offset-md-1 mt-5">
-    <h3>コミュニティ一覧</h3>
+    <h3>ミーティング一覧</h3>
     <table class= "table mt-3" >
       <tr>
-        <th class= "col-4">コミュニティ名</th>
-        <th class= "col-7">説明</th>
+        <th class= "col-4">ミーティング名</th>
+        <th class= "col-7">内容</th>
         <th class= "col-1"></th>
       </tr>
       <% @communities.each do |community| %>
@@ -35,8 +35,60 @@
       </tr>
       <% end %>
       </table>
+    <div class="communities_paginate">
+       <%= paginate @communities %>
     　</div>
+    　</div>
+     </div>
     </div>
-    </div>
+    <head>
+  <style>
+.communities_paginate{
+  width: 100%;
+  margin: auto;
+}
+
+/* ページネーション全体 */
+.pagination{
+  text-align: center;
+  display: flex;
+  justify-content: center; 
+}
+
+/* ページネーションのspan */
+.pagination span{
+  text-align: center;
+  width: 50px;
+  font-size: 20px;
+}
+
+/* ページネーションのリンク文字（a） */
+.pagination a{
+  color: #818181;
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-weight: bold;
+  padding: 10px;
+}
+
+/* ページネーションの文字にカーソルを載せた時 */
+.pagination a:hover{
+  width: 50px;
+  height: 50px;
+  background-color: #84b8eb;
+  color: #FFF;
+  border-radius: 100%;
+  padding: 10px;
+}
+
+/* 現在のページの数字についての表記 */
+.current{
+  font-weight: bold;
+  color: #84b8eb;
+  padding: 10px;
+}
+  </style>
+</head>
  　
 　
