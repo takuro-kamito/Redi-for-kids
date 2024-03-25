@@ -21,16 +21,25 @@
     <div>
   <%= render 'user/searches/form' %>
    </div>
-   <!--<<body style="background-color: #FD7D33">-->
     <%= yield %>
   </body>
   <footer>
   <div class='container mt-5'>
   	<div class='row'>
     	<div class='mx-auto'>
-    		<p>CopyRight Infratop.inc</p>
+    		<p>CopyRight Redi for kids Infratop.inc</p>
     	</div>
     </div>
   </div>
 </footer>
 </html>
+<style>
+ footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9999;
+}
+</style>

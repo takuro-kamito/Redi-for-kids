@@ -1,6 +1,6 @@
 class User::HomesController < ApplicationController
   def top
-    @community = Community.order("id DESC").limit(8)
+    @community = Community.all.order('created_at DESC').page(params[:page]).per(4)
   end
 
   def about

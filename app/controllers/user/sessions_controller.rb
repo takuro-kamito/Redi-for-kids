@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class User::SessionsController < Devise::SessionsController
-  # before_action :user_state, only: [:create]
+   before_action :user_state, only: [:create]
 
   # GET /resource/sign_in
   # def new
@@ -40,12 +40,12 @@ class User::SessionsController < Devise::SessionsController
 #     redirect_to new_user_registration_path
 #   end
 #   end
-def create
+def user_state
     user = User.find_by(email: params[:user][:email])
     if user && user.status != "制限中" # statusが制限中でなければログイン可能
-      super
     else
-      redirect_to new_user_session_path, alert: "メールアドレスが登録されていないか、制限中です。"
+      flash[:notice] = "メールアドレスが登録されていないか、制限中です。新規会員登録が必要です。"
+      redirect_to new_user_session_path
     end
 end
 end

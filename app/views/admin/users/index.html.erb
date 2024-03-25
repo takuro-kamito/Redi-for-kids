@@ -18,7 +18,7 @@
             <td class="align-middle"><%= user.id %></td>
             <td class="align-middle"><%=link_to user.name, admin_user_path(user.id) %></td>
             <td class="align-middle"><%= user.email %></td>
-            <td class="<%= user.status == '制限中' ? 'text-warning' : 'text-success' %>"><%= user.status %></td>
+            <td class="<%= user.status == '有効' ? 'text-warning' : 'text-success' %>"><%= user.status %></td>
             </tr>
               <% end %>
         </tbody>

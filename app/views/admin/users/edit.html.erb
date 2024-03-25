@@ -28,8 +28,8 @@
           <%= form_with model: @user, url: admin_user_path(@user), method: :patch do |f| %>
             <th class="p-2">会員ステータス</th>
             <td></td>
-            <th class="p-2"><%= f.radio_button :is_active, "true" %>有効</th>
-            <th class="p-2"><%= f.radio_button :is_active, "false" %>制限中</th>
+            <th class="p-2"><%= f.radio_button :is_active, "false" %>有効</th>
+            <th class="p-2"><%= f.radio_button :is_active, "true" %>制限中</th>
           </tr>
           <tr>
             <th class="p-2"></th>

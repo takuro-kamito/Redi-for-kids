@@ -1,3 +1,4 @@
+<div class="bg_pattern Rectangles"></div>
 <div class="container p-4">
   <div class="row">
     <div class="col-4">
@@ -46,15 +47,22 @@
 </div>
 
 <style>
+  p {
+    font-family: 'Nunito Sans', sans-serif; /* 手書き風の可愛らしいフォントに設定 */
+    font-size: 16px; /* 本文の文字サイズを調整 */
+    font-weight: bold; 
+    color: #AA6822; /* テキストカラーを濃いグレーに設定 */
+    background-color: transparent(0, 0, 0, 0.4);
+  }
 .balloon3-left {
   left: -160px;
   position: absolute;
   display: inline-block;
   margin: 1.5em 0 1.5em 5px;
-  padding: 0 80px;
-  width: 275px;
+  padding: 0 70px;
+  width: 270px;
   height: 180px;
-  line-height: 120px
+  line-height: 110px
   text-align: center;
   color: #FFF;
   font-size: 16px;
@@ -67,13 +75,82 @@
 .balloon3-left:before {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 60%;
   right: -26px;
   margin-top: -20px;
   border: 15px solid transparent;
   border-left: 15px solid #ffcc75;
   z-index: 0;
 }
+.bg_pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffe9a7;
+  opacity: 0.4;
+  z-index: -1;
+}
+.Rectangles {
+  background-image:  repeating-linear-gradient(45deg, #ffc107 25%, transparent 25%, transparent 75%, #ffc107 75%, #ffc107), repeating-linear-gradient(45deg, #ffc107 25%, #ffe9a7 25%, #ffe9a7 75%, #ffc107 75%, #ffc107);
+  background-position: 0 0, 20px 20px;
+  background-size: 40px 40px;
+}
 
+/*=============
+base
+==============*/
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: YuGothic, "游ゴシック体", "Yu Gothic", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  letter-spacing: .025em;
+  line-height: 1.8;
+}
+* {
+  box-sizing: border-box;
+}
+.section {
+  max-width: 1024x;
+  margin: 0 auto;
+  padding: 100px 20px 1000px;
+}
+._a {
+  max-width: 300px;
+  margin: 0 auto;  
+}
+._a a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 2.0em 1.0em;
+  border: 1px solid #222222;
+  background: linear-gradient(to right, #ffffff 50%, #222222 50%);
+  background-size: 200% auto;
+  color: #222222;
+  font-size: 12px;
+  text-decoration: none;
+  text-align: center;
+  transition: .3s;
+  position: relative;
+}
+._a a:after {
+  content: "";
+  position: absolute;
+  right: -5px;
+  bottom: -5px;
+  width: 100%;
+  height: 100%;
+  border-right: 1px solid #222222;
+  border-bottom: 1px solid #222222;
+}
+._a a:hover {
+  color: #ffffff;
+  background-position: -100% 0;
 }
 </style>

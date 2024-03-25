@@ -1,3 +1,4 @@
+ <div class="bg_pattern Rectangles"></div>
 <div class="title">
   <h2>
     <% if @another_entry %>
@@ -7,7 +8,7 @@
     <% end %>
   </h2>
    <%= link_to "ルームへ戻る", user_rooms_path, class: "btn btn-primary btn-sm" %>
-</div>
+
 <div class="message-box">
   <% if @messages.present? %>
     <% @messages.each do |m| %>
@@ -45,15 +46,23 @@
   <div class="error-message">メッセージがありません。</div>
 <% end %>
 
+
 <style>
-/*.message-box {*/
-/*  clear: both;*/
-/*  align-self: flex-start;*/
-/*  width: 100%;*/
-/*  background-color: lightblue;*/
-/*  padding: 30px;*/
-/*  margin-bottom: 20px;*/
-/*}*/
+.title {
+  font-size: 18px; 
+  font-weight: bold; 
+  color: gray; 
+ 
+}
+.bg_pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: lightblue;
+  z-index: -1;
+}
   .my-message {
   float: right; 
   clear: both;
@@ -91,8 +100,13 @@
   border-top-color: #F2F2F2;
 }
 .chat-form-box {
-  margin-bottom: 50px;
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  right: 0;
   text-align: center;
+  padding: 90px;
+  
 }
 
 </style>

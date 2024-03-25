@@ -1,7 +1,7 @@
 class Admin::PostBoardsController < ApplicationController
   def index
     @community = Community.find(params[:community_id])
-    @post_boards = @community.post_boards.order('created_at DESC').page(params[:page]).per(1)
+    @post_boards = @community.all.post_boards.order('created_at DESC').page(params[:page]).per(5)
     @users = User.all
   end
 

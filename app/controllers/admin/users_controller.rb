@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
  
  
   def index
-   @users = User.all.page(params[:page]).per(3)
+   @users = User.all.page(params[:page]).per(8)
   end
 
   def show
@@ -16,8 +16,11 @@ class Admin::UsersController < ApplicationController
 
   def update 
     @user = User.find(params[:id])
-    @user.update(user_params)
+  if@user.update(user_params)
     redirect_to admin_user_path(@user)
+  else
+    render :edit
+  end
   end
 
   private

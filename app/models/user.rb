@@ -25,9 +25,9 @@ def self.search_for(content, method)
 end
       def status
     if is_active
-      "有効"
-    else
       "制限中"
+    else
+      "有効"
     end
       end
 

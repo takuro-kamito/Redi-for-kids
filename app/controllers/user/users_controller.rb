@@ -1,6 +1,6 @@
 class User::UsersController < ApplicationController
+   before_action :set_defaults, only: [:create]
   before_action :authenticate_user!, only: [:show]
-  
   
   def index
     @users = User.all.order('created_at DESC').page(params[:page]).per(5)
@@ -26,14 +26,18 @@ class User::UsersController < ApplicationController
     end
     end
   end
+  
   def create
+    @user = User.new(user_params)
     if User.exists?(email: params[:email])
-      redirect_to signup_path, alert: "そのメールアドレスはすでに登録されています。"
+      flash[:notice] = "そのメールアドレスはすでに登録されています。"
+      redirect_to new_user_registration_path
     else
       @user = User.new(user_params)
       
       if @user.save
-        redirect_to success_path, notice: "新規登録が完了しました。"
+        flash[:notice] = "新規登録が完了しました"
+        redirect_to root_path
       else
         render :new
       end
@@ -73,6 +77,9 @@ end
 private
 
 def user_params
-  params.require(:user).permit(:name, :introduction, :profile_image, :is_active, :status, :email, :passwors)
+  params.require(:user).permit(:admin,:name, :introduction, :profile_image, :is_active, :status, :email, :passwors)
+end
+def set_defaults
+    self.admin = true 
 end
 end

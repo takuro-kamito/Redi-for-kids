@@ -2,7 +2,7 @@ class Admin::CommunitiesController < ApplicationController
 
   def index
     @community = Community.new
-    @communities = Community.all.order('created_at DESC').page(params[:page]).per(5)
+    @communities = Community.all.order('created_at DESC').page(params[:page]).per(4)
   end
 
   def create
