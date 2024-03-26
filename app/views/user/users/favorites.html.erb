@@ -1,7 +1,7 @@
 <div class="bg_pattern Rectangles"></div>
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title">いいねのブックマーク</h5>
+    <h2>Bookmark</h2>
     <%= link_to "My pageへ戻る", user_user_path, class: "btn btn-primary" %>
     <div class="row">
       <% @favorite_communities.each do |community| %>
@@ -10,9 +10,8 @@
             <div class="card-body">
               <h6 class="card-subtitle mb-2 text-muted"><%= community.name %></h6>
               <p class="card-text"><%= community.explanation %></p>
-              <!-- ハートアイコンの追加 -->
+              <%= link_to "参加する", user_community_post_boards_path(community), class: "btn btn-primary" %>
               <i class="fas fa-heart" style="color: red;"></i>
-              <!-- ブックマークアイコンの追加 -->
               <%= link_to user_communities_path(community), class: "bookmark-link" do %>
                 <i class="fas fa-bookmark"></i>
                 <% end %>
@@ -23,7 +22,69 @@
     </div>
   </div>
 </div>
+<div class="favorite_paginate">
+<%= paginate @favorite_communities %>
+</div>
 <style>
+h2 {
+  padding: 1rem 2rem;
+  color: #fff;
+  background: #ff3333;
+  -webkit-box-shadow: 5px 5px 0 #007032;
+  box-shadow: 5px 5px 0 #0000FF;
+}
+p {
+    font-family: 'Nunito Sans', sans-serif; 
+    font-size: 16px; 
+    font-weight: bold; 
+    color: #AA6822; 
+    background-color: transparent(0, 0, 0, 0.4);
+  }
+.favorite_paginate{
+  width: 100%;
+  margin: auto;
+}
+
+/* ページネーション全体 */
+.pagination{
+  text-align: center;
+  display: flex;
+  justify-content: center; 
+}
+
+/* ページネーションのspan */
+.pagination span{
+  text-align: center;
+  width: 50px;
+  font-size: 20px;
+}
+
+/* ページネーションのリンク文字（a） */
+.pagination a{
+  color: #818181;
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-weight: bold;
+  padding: 10px;
+}
+
+/* ページネーションの文字にカーソルを載せた時 */
+.pagination a:hover{
+  width: 50px;
+  height: 50px;
+  background-color: #84b8eb;
+  color: #FFF;
+  border-radius: 100%;
+  padding: 10px;
+}
+
+/* 現在のページの数字についての表記 */
+.current{
+  font-weight: bold;
+  color: #84b8eb;
+  padding: 10px;
+}
   .bg_pattern {
   position: fixed;
   top: 0;

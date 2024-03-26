@@ -44,11 +44,18 @@
             <% end %>
           <% end %>
         <style>
-
+  
+p {
+    font-family: 'Nunito Sans', sans-serif; /* 手書き風の可愛らしいフォントに設定 */
+    font-size: 16px; /* 本文の文字サイズを調整 */
+    font-weight: bold; 
+    color: #AA6822; /* テキストカラーを濃いグレーに設定 */
+    background-color: transparent(0, 0, 0, 0.4);
+  }
  .comment-container {
   display: flex; 
   align-items: flex-start; /* コメントの縦位置を上端に揃える */
-  background-color: #f5f5f5;
+  background-color: #EDDCB4;
 }
 
 .comment {
@@ -68,14 +75,10 @@
 
 .comment-info {
   display: flex; /* 名前と時間を横並びにするために、情報要素を flex コンテナにする */
-  background-color: orange;
 }
 
 .comment-body {
   margin-top: 5px; /* コメント本文の上に余白を追加 */
-}
-.card {
-    background-color: #f5f5f5;
 }
  .bg_pattern {
   position: fixed;

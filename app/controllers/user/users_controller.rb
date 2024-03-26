@@ -70,7 +70,7 @@ end
  def favorites
     @user = User.find(params[:id])
     @favorites = Favorite.where(user_id: @user.id).pluck(:community_id)
-    @favorite_communities = Community.where(id: @favorites)
+    @favorite_communities = Community.where(id: @favorites).order('created_at DESC').page(params[:page]).per(3)
  end
   
 

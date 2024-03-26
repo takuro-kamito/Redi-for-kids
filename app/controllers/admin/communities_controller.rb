@@ -10,11 +10,9 @@ class Admin::CommunitiesController < ApplicationController
     @community = Community.new(community_params)
     @community.admin_id = current_admin.id
     if @community.save
-      #コミュニティの新規登録が成功開いた場合の処理
       flash[:notice] = "登録に成功しました。"
       redirect_to admin_communities_path(@community)
     else
-      #コミュニティが失敗した場合の処理
       flash.now[:alert] = "登録に失敗しました。"
      
       render :index
@@ -31,22 +29,13 @@ class Admin::CommunitiesController < ApplicationController
 
   def update
     @community = Community.find(params[:id])
-    if @community.update(community_params)
-      # コミュニティの更新が成功した場合の処理
-      flash[:notice] = "更新に成功しました。"
-      redirect_to admin_communities_path
-    else
-      # コミュニティの更新が失敗した場合の処理
-      flash.now[:alert] = "更新に失敗しました"
-      render :edit
-    end
+    @community.update(community_params)
+    redirect_to admin_communities_path
   end
 
    def destroy
     @community = Community.find(params[:id])
     @community.destroy
-    # コミュニティの削除が成功した場合の処理
-    flash[:notice] = "削除に成功しました。"
     redirect_to admin_communities_path
    end
 

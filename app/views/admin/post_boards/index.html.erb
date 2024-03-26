@@ -1,3 +1,9 @@
+<div class="col-8">
+  <% if flash[:notice] %>
+  <div class="alert alert-danger">
+    <%= flash[:notice] %>
+    </div>
+      <% end %>
 <div class="container mt-5">
   <h3><%= @community.name %>の投稿一覧</h3>
   <table class="table mt-3">
