@@ -6,6 +6,7 @@ class User::RoomsController < ApplicationController
     @current_entry = Entry.create(user_id: current_user.id, room_id: @room.id)
     @another_entry = Entry.create(user_id: params[:entry][:user_id], room_id: @room.id)
     redirect_to user_rooms_path(@room)
+  end
 
 
   def index
@@ -14,7 +15,7 @@ class User::RoomsController < ApplicationController
     @current_entries.each do |entry|
       my_room_id << entry.room.id
     end
-    
+    #byebug
     @another_entries = Entry.where(room_id: my_room_id).where.not(user_id: @current_user.id)  # 自分のroom_idでuser_idが自分じゃないのを取得
   end
 
@@ -24,7 +25,5 @@ class User::RoomsController < ApplicationController
     @message = Message.new
     @entries = @room.entries
     @another_entry = @entries.where.not(user_id: current_user.id).first
-    
-  end
   end
 end
