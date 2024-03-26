@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
- <%= form_with url: user_search_path, method: :get, class: "d-flex" do |f| %>
+ <%= form_with url: user_search_path, method: :get, class: "d-flex"  do |f| %>
   <%= f.text_field :content %>
    <%= f.select :model, options_for_select({"User" => "User", "Community" => "Community"}) %>
    <%= f.hidden_field :method, value: "partial" %>

@@ -1,30 +1,86 @@
 <div class="bg_pattern Rectangles"></div>
 <div class="container">
   <div class='row mt-5'>
-    <h3>ミーティング一覧</h3>
-  </div>
-</div>
-
-<div class="container">
-  <div class='row mt-3'>
-    <% @communities.each do |community| %>
-      <div class="col-md-4">
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title"><%= community.name %></h5>
-            <p class="card-text"><%= community.explanation %></p>
-            <%= link_to "投稿はこちらへ", user_community_post_boards_path(community), class: "btn btn-primary" %>
-            <%= render 'user/favorites/favorite', community: community %>
+    <h2><i class="far fa-lightbulb"></i><span>なんでんかんでんミーティング</span></h2>
+      <div class="container">
+        <div class='row mt-3'>
+          <% @communities.each do |community| %>
+          <div class="col-md-4">
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title"><%= community.name %></h5>
+                <p class="card-text"><%= community.explanation %></p>
+                  <%= link_to "参加する", user_community_post_boards_path(community), class: "btn btn-primary" %>
+                <%= render 'user/favorites/favorite', community: community %>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
+        <% end %>
+      <div class="communities_paginate">
+    <%= paginate @communities %>
+   </div>
+ </div>
 </div>
-<div class="communities_paginate">
-<%= paginate @communities %>
+</div>
+</div>
 <head>
   <style>
+  p {
+    font-family: 'Nunito Sans', sans-serif; /* 手書き風の可愛らしいフォントに設定 */
+    font-size: 16px; /* 本文の文字サイズを調整 */
+    font-weight: bold; 
+    color: #AA6822; /* テキストカラーを濃いグレーに設定 */
+    background-color: transparent(0, 0, 0, 0.4);
+  }
+  h2 {
+  position: relative;
+  padding: 1.5rem;
+  text-align: center;
+  border: 2px solid #000;
+  background: #fff;
+}
+
+h2:before,
+h2:after {
+  position: absolute;
+  content: '';
+}
+
+h2:before {
+  top: -40px;
+  left: calc(50% - 40px);
+  width: 80px;
+  height: 80px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  background: #fff;
+}
+
+h2:after {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+
+h2 i {
+  font-size: 30px;
+  font-size: 3rem;
+  line-height: 60px;
+  position: absolute;
+  z-index: 1;
+  top: -40px;
+  left: calc(50% - 40px);
+  width: 80px;
+  height: 60px;
+  text-align: center;
+}
+
+h2 span {
+  position: relative;
+  z-index: 1;
+}
 .communities_paginate{
   width: 100%;
   margin: auto;
@@ -32,9 +88,10 @@
 
 /* ページネーション全体 */
 .pagination{
-  text-align: center;
+   text-align: center;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
+  height: 70px; /* 適宜変更してください */
 }
 
 /* ページネーションのspan */

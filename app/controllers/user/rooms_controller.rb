@@ -9,8 +9,7 @@ class User::RoomsController < ApplicationController
 
 
   def index
-     
-    @current_entries = current_user.entries  # ログインユーザー所属ルームID取得
+    @current_entries = current_user.entries
     my_room_id = []
     @current_entries.each do |entry|
       my_room_id << entry.room.id
