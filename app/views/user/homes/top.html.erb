@@ -4,18 +4,18 @@
   <%= image_tag "panda2.png",:size =>'500x600',class: 'pomuo' %>
   <div class="balloon3-left">
 <p>初めまして<br>
+なんだパンダと申します。<br>
 子供の気になることをみんなで話そう！<br>
 まずは、気軽に登録してね！<br>
 登録後は気になるミーティングに入って<br>
 たくさん話をしましょう！</p>
 </div>
-
-   <div class="col-md-5 ">
-    <h3 class="my-3 p-2" style="background-color: #474343; color: white;">New Meeting</h3>
+ <div class="col-md-5 ">
+    <h3 class="my-3 p-2" style="background-color: #C68E46; color: white;">New Meeting</h3>
     <table class="table">
       <tbody>
         <% @community.each do |community| %>
-          <tr class="list">
+          <tr class="list"style="background-color: rgba(252, 250, 247, 0.2); ">
             <td><%= community.name %></td>
             <td><%= community.explanation %></td>
             <% if user_signed_in? %>
@@ -31,92 +31,23 @@
    </div>
   </div>
 </div>
-  
+
   <style>
-  p {
-    font-family: 'Nunito Sans', sans-serif; /* 手書き風の可愛らしいフォントに設定 */
-    font-size: 18px; /* 本文の文字サイズを調整 */
-    font-weight: bold;
-    color: #AA6822; /* テキストカラーを濃いグレーに設定 */
-    background-color: transparent(0, 0, 0, 0.4);
-  }
+
   h2 {
   position: relative;
-  text-align: center;
-  border: 2px solid #000;
-  background: #EDDCB4;
-}
-
-h2:before,
-h2:after {
-  position: absolute;
-  content: '';
+  padding: 1.5rem 2.5rem;
+  border: 4px solid #000;
 }
 
 h2:before {
-  top: -40px;
-  left: calc(50% - 40px);
-  width: 80px;
-  height: 80px;
-  border: 2px solid #000;
-  border-radius: 50%;
-  background: #fff;
-}
-
-h2:after {
+  position: absolute;
   top: 4px;
   left: 4px;
   width: calc(100% - 8px);
   height: calc(100% - 8px);
-  border: 2px dashed #000;
-  background: #fff;
-}
-
-h2 i {
-  font-family: 'Nunito Sans', sans-serif;
-  font-weight: bold;
-  color: #AA6822;
-  font-size: 24px;
-  font-size: 2.4rem;
-  line-height: 60px;
-  position: absolute;
-  z-index: 2;
-  top: -40px;
-  left: calc(50% - 40px);
-  width: 80px;
-  height: 60px;
-  text-align: center;
-}
-
-h2 span {
-  position: relative;
-  z-index: 1;
-  display: block;
-  padding: 1.5rem;
-}
-
-h2 span:before,
-h2 span:after {
-  position: absolute;
   content: '';
-}
-
-h2 span:before {
-  top: -34px;
-  left: calc(50% - 34px);
-  width: 68px;
-  height: 40px;
-  border: 2px dashed #000;
-  border-radius: 50vw 50vw 0 0;
-}
-
-h2 span:after {
-  position: absolute;
-  top: 4px;
-  left: calc(50% - 32px);
-  width: 64px;
-  height: 10px;
-  background: #fff;
+  border: 4px dotted #000;
 }
 .users_paginate{
   width: 100%;
@@ -126,7 +57,7 @@ h2 span:after {
 .pagination{
   text-align: center;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .pagination span{

@@ -38,47 +38,43 @@
                       </div>
                       </div>
                     </div>
-                  </div>
+                   </div>
+                  <div class="comment-index">
+                 <p>コメント数: <%= community.comment_count %></p>
+　　　　　　　　</div>
                 </div>
               </div>
             <% end %>
           <% end %>
         <style>
   
-p {
-    font-family: 'Nunito Sans', sans-serif; /* 手書き風の可愛らしいフォントに設定 */
-    font-size: 16px; /* 本文の文字サイズを調整 */
-    font-weight: bold; 
-    color: #AA6822; /* テキストカラーを濃いグレーに設定 */
-    background-color: transparent(0, 0, 0, 0.4);
-  }
  .comment-container {
   display: flex; 
-  align-items: flex-start; /* コメントの縦位置を上端に揃える */
+  align-items: flex-start; 
   background-color: #EDDCB4;
 }
 
 .comment {
-  display: flex; /* アイコンとコメントを横並びにするために、コメント要素を flex コンテナにする */
-  align-items: flex-start; /* アイコンとコメントの縦位置を上端に揃える */
+  display: flex;
+  align-items: flex-start; 
 }
 
 .comment-icon {
-  margin-right: 10px; /* アイコンとコメントの間に余白を追加 */
+  margin-right: 10px; 
 }
 
 .comment-content {
-  display: flex; /* 名前、時間、コメントを横並びにするために、コメント内容を flex コンテナにする */
-  flex-direction: column; /* 名前、時間、コメントを縦並びにする */
+  display: flex; 
+  flex-direction: column; 
   
 }
 
 .comment-info {
-  display: flex; /* 名前と時間を横並びにするために、情報要素を flex コンテナにする */
+  display: flex; 
 }
 
 .comment-body {
-  margin-top: 5px; /* コメント本文の上に余白を追加 */
+  margin-top: 5px; 
 }
  .bg_pattern {
   position: fixed;

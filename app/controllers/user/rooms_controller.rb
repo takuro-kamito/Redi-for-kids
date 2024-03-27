@@ -10,7 +10,7 @@ class User::RoomsController < ApplicationController
 
 
   def index
-    @current_entries = current_user.entries
+    @current_entries = current_user.entries.order('created_at DESC').page(params[:page]).per(3)
     my_room_id = []
     @current_entries.each do |entry|
       my_room_id << entry.room.id

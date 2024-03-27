@@ -3,7 +3,7 @@ class User::UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show]
   
   def index
-    @users = User.all.order('created_at DESC').page(params[:page]).per(3)
+    @users = User.all.order('created_at DESC').page(params[:page]).per(4)
     @user = current_user
   end
 

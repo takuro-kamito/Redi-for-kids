@@ -11,6 +11,12 @@
                 <h5 class="card-title"><%= community.name %></h5>
                 <p class="card-text"><%= community.explanation %></p>
                   <%= link_to "参加する", user_community_post_boards_path(community), class: "btn btn-primary" %>
+                  <div class="comment-index">
+                    <div class="bubble">
+                    <i class="fas fa-comment"></i>
+                     <p> <%= community.comment_count %></p>
+                     </div>
+                    </div>
                 <%= render 'user/favorites/favorite', community: community %>
               </div>
             </div>
@@ -25,13 +31,18 @@
 </div>
 <head>
   <style>
-  p {
-    font-family: 'Nunito Sans', sans-serif; /* 手書き風の可愛らしいフォントに設定 */
-    font-size: 16px; /* 本文の文字サイズを調整 */
-    font-weight: bold; 
-    color: #AA6822; /* テキストカラーを濃いグレーに設定 */
-    background-color: transparent(0, 0, 0, 0.4);
-  }
+ .comment-index {
+  position: relative;
+}
+
+.comment-index .bubble {
+  position: absolute;
+  top: -10px;
+  right: 0px;
+  color: #cc6600;
+  padding: 5px 5px;
+  border-radius: 50%;
+}
   h2 {
   position: relative;
   padding: 1.5rem;

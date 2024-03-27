@@ -1,9 +1,4 @@
-<div class="col-8">
-  <% if flash[:notice] %>
-  <div class="alert alert-danger">
-    <%= flash[:notice] %>
-    </div>
-      <% end %>
+
 <div class="container mt-5">
   <h3><%= @community.name %>の投稿一覧</h3>
   <table class="table mt-3">
@@ -31,6 +26,10 @@
 </div>
 <head>
   <style>
+  body {
+    background-color: #FFFFF0; /* 背景色の指定 */
+  }
+
 .post_board_paginate{
   width: 100%;
   margin: auto;
@@ -40,7 +39,7 @@
 .pagination{
   text-align: center;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
 }
 
 /* ページネーションのspan */
@@ -77,4 +76,3 @@
   padding: 10px;
 }
   </style>
-</head>
