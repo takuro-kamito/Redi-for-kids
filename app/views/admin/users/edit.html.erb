@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col">
       <h2 class="mb-4 text-center"><%= @user.name %>さんの会員情報編集</h2>
+      <%= form_with model: @user, url: admin_user_path(@user), method: :patch do |f| %>
         <div class="d-flex align-items-center pb-3">
         <table class="mt-4">
           <tr>
@@ -25,7 +26,6 @@
             <td class="p-2"><%= @user.email %></td>
           </tr>
           <tr>
-          <%= form_with model: @user, url: admin_user_path(@user), method: :patch do |f| %>
             <th class="p-2">会員ステータス</th>
             <td></td>
             <th class="p-2"><%= f.radio_button :is_active, "false" %>有効</th>

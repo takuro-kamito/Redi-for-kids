@@ -16,8 +16,8 @@
       <li class="list-group-item">
         <a href="<%= user_user_path(post_board.user.id) %>" class="list-group-item list-group-item-action">
         <%= image_tag post_board.user.get_profile_image(100, 100), class: "rounded-circle mr-3" %>
-        <%= post_board.user.name %>
         <br></br>
+        <%= post_board.user.name %>
         <p><%= post_board.body %></p>
         </a>
         <% end %>
