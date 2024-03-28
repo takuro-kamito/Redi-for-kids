@@ -24,6 +24,7 @@
   <ul class="list-group">
     <% @records.each do |community| %>
       <li class="list-group-item">
+        <div class="item">
         <h5><%= community.name %></h5>
         <p><%= community.explanation %></p>
         <%= link_to "ミーティングへ", user_community_post_boards_path(community), class: "btn btn-primary" %>
@@ -32,6 +33,22 @@
   </ul>
 <% end %>
 <style>
+
+.item {
+  margin-bottom: 20px; /* 下方向のマージンを追加して要素間の間隔を調整 */
+}
+
+.item h5 {
+  margin-bottom: 10px; /* h5要素の下方向のマージンを追加 */
+}
+
+.item p {
+  margin-bottom: 10px; /* p要素の下方向のマージンを追加 */
+}
+
+.item .btn-primary {
+  margin-top: 10px; /* ボタンの上方向のマージンを追加 */
+}
 .list-group-item {
   display: flex;
   align-items: flex-start;

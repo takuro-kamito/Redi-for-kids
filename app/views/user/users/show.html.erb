@@ -74,7 +74,7 @@
             <%= fields_for @entry do |e| %>
               <%= e.hidden_field :user_id, value: @user.id %>
                <% end %>
-               <%= f.button "Mail", type: "submit" %>
+               <%= f.button "Mail", type: "submit", class: "right-align" %>
               <% end %>
              <% end %>
             <% end %>
@@ -85,6 +85,10 @@
     </div>
   </div>
 <style>
+
+.right-align {
+  float: right;
+}
 .mb-4 {
     font-family: 'Nunito Sans', sans-serif;
     font-size: 30px; /* 見出しの文字サイズを大きく設定 */
