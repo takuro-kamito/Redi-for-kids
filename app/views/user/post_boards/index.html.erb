@@ -1,8 +1,7 @@
 <div class="bg_pattern Rectangles"></div>
-<div class="container mt-5">
+ <div class="container mt-5">
   <div class="d-flex justify-content-between align-items-center">
-    <h4><%= @community.name %>への投稿はこちらへ</h4>
-    
+   <h4><%= @community.name %>への投稿はこちらへ</h4>
     <div><%= link_to "ミーティング一覧へ戻る", user_communities_path, class: "btn btn-primary btn-sm" %></div>
   </div>
   <%= form_with(model: @post_board, url: user_community_post_boards_path(@community), local: true) do |form| %>
@@ -22,25 +21,25 @@
                 <div class="comment">
                   <div class="comment-icon">
                     <div class="comment-index">
-                    <% if post_board.user.profile_image.attached? %>
-                      <%= image_tag post_board.user.profile_image.variant(resize: "100x100") %>
-                    <% end %>
+                      <% if post_board.user.profile_image.attached? %>
+                       <%= image_tag post_board.user.profile_image.variant(resize: "100x100") %>
+                        <% end %>
                         </div>
 　　　　　　　　　　　　　<div class="comment-content">
                             <div class="comment-info">
                             　<p class="comment-author"><%= post_board.user.name %>より：</p>
                               <p class="comment-date"><%= post_board.created_at.strftime("%Y年%m月%d日 %H時%M分") %></p>
-                            </div>
-                            <div class="comment-body">
+                              </div>
+                               <div class="comment-body">
                               <p><%= post_board.body %></p>
                             </div>
-                          </div>
+                           </div>
+                         </div>
                         </div>
-                      </div>
-                      </div>
+                       </div>
+                     </div>
                     </div>
-                   </div>
-　　　　　　　　</div>
+　　　　　　　　  </div>
                 </div>
               </div>
             <% end %>

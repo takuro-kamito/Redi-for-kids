@@ -1,16 +1,15 @@
 <div class="bg_pattern Rectangles"></div>
-<h3>検索結果</h3>
-<% if @model == 'User' %>
-  <div class="list-group">
-    <% @records.each do |user| %>
-      <a href="<%= user_user_path(user.id) %>" class="list-group-item list-group-item-action">
+　<h3>検索結果</h3>
+　　<% if @model == 'User' %>
+  　　<div class="list-group">
+    　　<% @records.each do |user| %>
+      　　<a href="<%= user_user_path(user.id) %>" class="list-group-item list-group-item-action">
         <%= image_tag user.get_profile_image(100, 100), class: "rounded-circle mr-3" %>
         <%= user.name %>
       </a>
     <% end %>
   </div>
-
-  <% elsif @model == 'Post_board' %>
+<% elsif @model == 'Post_board' %>
   <ul class="list-group">
     <% @records.each do |post_board| %>
       <li class="list-group-item">
@@ -21,15 +20,13 @@
         <p><%= post_board.body %></p>
         </a>
         <% end %>
-
-<% elsif @model == 'Community' %>
+　　　<% elsif @model == 'Community' %>
   <ul class="list-group">
     <% @records.each do |community| %>
       <li class="list-group-item">
         <h5><%= community.name %></h5>
         <p><%= community.explanation %></p>
         <%= link_to "ミーティングへ", user_community_post_boards_path(community), class: "btn btn-primary" %>
-        <!-- その他表示したい属性や要素を追加します -->
       </li>
     <% end %>
   </ul>

@@ -6,25 +6,25 @@
         <table class="table table-borderless">
           <tbody>
             <tr>
-              <td class="pl-5">メールアドレス</td>
-              <td><%= f.email_field :email, autofocus: true, autocomplete: "email", style: "width: 400px;" %></td>
-            </tr>
-            <tr>
-              <td class="pl-5">パスワード</td>
-              <td><%= f.password_field :password, autocomplete: "current-password", style: "width: 400px;" %></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><%= f.submit "ログイン", class: "btn btn-primary", style: "width: 150px;" %></td>
-            </tr>
-          </tbody>
-        </table>
-        <% end %>
+             <td class="pl-5">メールアドレス</td>
+               <td><%= f.email_field :email, autofocus: true, autocomplete: "email", style: "width: 400px;" %></td>
+                 </tr>
+                  <tr>
+                    <td class="pl-5">パスワード</td>
+                   <td><%= f.password_field :password, autocomplete: "current-password", style: "width: 400px;" %></td>
+                  </tr>
+                 <tr>
+                <td></td>
+               <td><%= f.submit "ログイン", class: "btn btn-primary", style: "width: 150px;" %></td>
+             </tr>
+            </tbody>
+          </table>
+         <% end %>
         <%= render "admin/shared/links" %>
       </div>
     </div>
   </div>
-  <style>
+<style>
   body {
   background-color: #FFFFF0; /* 背景色の指定 */
   }

@@ -1,10 +1,10 @@
 <div class="bg_pattern Rectangles"></div>
-<div class="card">
+ <div class="card">
   <div class="card-body">
     <h2>Bookmark</h2>
-    <%= link_to "My pageへ戻る", user_user_path, class: "btn btn-primary" %>
-    <div class="row">
-      <% @favorite_communities.each do |community| %>
+     <%= link_to "My pageへ戻る", user_user_path, class: "btn btn-primary" %>
+      <div class="row">
+       <% @favorite_communities.each do |community| %>
         <div class="col-md-4">
           <div class="card mb-3">
             <div class="card-body">
@@ -15,16 +15,16 @@
               <%= link_to user_communities_path(community), class: "bookmark-link" do %>
                 <i class="fas fa-bookmark"></i>
                 <% end %>
-            </div>
-          </div>
+               </div>
+             </div>
+           </div>
+          <% end %>
+         </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+     <div class="favorite_paginate">
+   <%= paginate @favorite_communities %>
   </div>
-</div>
-<div class="favorite_paginate">
-<%= paginate @favorite_communities %>
-</div>
 <style>
 h2 {
   padding: 1rem 2rem;

@@ -2,9 +2,8 @@
   <div class="row">
     <div class="col">
       <h2 class="mb-4 text-center">会員一覧</h2>
-
-      <table class="table table-bordered">
-        <thead style="background-color: #e9ecef;">
+        <table class="table table-bordered">
+         <thead style="background-color: #e9ecef;">
           <tr>
             <th>会員ID</th>
             <th>氏名</th>
@@ -21,18 +20,18 @@
             <td class="<%= user.status == '有効' ? 'text-warning' : 'text-success' %>"><%= user.status %></td>
             </tr>
               <% end %>
-        </tbody>
-      </table>
-      <div class="d-flex justify-content-center">
+              </tbody>
+             </table>
+           <div class="d-flex justify-content-center">
+          </div>
+        </div>
+       </div>
       </div>
-    </div>
+     <div class="users_paginate">
+   <%= paginate @users %>
   </div>
-</div>
-<div class="users_paginate">
-<%= paginate @users %>
-</div>
-<head>
-  <style>
+ <head>
+<style>
   body {
   background-color: #FFFFF0; /* 背景色の指定 */
   }
@@ -82,4 +81,3 @@
   padding: 10px;
 }
   </style>
-</head>

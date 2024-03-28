@@ -2,12 +2,12 @@
   <div class="row">
     <div class="col-8 mx-auto">
       <h2 class="mb-4 text-center">ジャンル編集</h2>
-      <%= form_with model: @genre, url: admin_genre_path(@genre), method: :patch do |f| %>
-      <div class="mt-5">
-        <strong><%= f.label "ジャンル名" %></strong>
-        <span class="pl-5"><%= f.text_field :name %></span>
+       <%= form_with model: @genre, url: admin_genre_path(@genre), method: :patch do |f| %>
+        <div class="mt-5">
+         <strong><%= f.label "ジャンル名" %></strong>
+         <span class="pl-5"><%= f.text_field :name %></span>
         <span class="pl-3"><%= f.submit "変更を保存", class:"btn btn-success" %></span>
-      </div>
+       </div>
       <% end %>
     </div>
   </div>

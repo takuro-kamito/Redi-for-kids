@@ -1,7 +1,6 @@
-
 <h2>MY Room</h2>
-<div><%= link_to "User pageへ", user_users_path(@crrent_entries), class: "btn btn-primary btn-cute"  %></div>
-<div class="card-container">
+ <div><%= link_to "User pageへ", user_users_path(@crrent_entries), class: "btn btn-primary btn-cute"  %></div>
+  <div class="card-container">
   <% @another_entries.each do |entry| %>
     <%= link_to user_room_path(entry.room) do %>
       <div class="square-card">
@@ -28,7 +27,7 @@
   background-color:#FFEAC7; /* その他のスタイルプロパティ */
 
   }
-  .current_paginate{
+.current_paginate{
   width: 100%;
   margin: auto;
 }
@@ -49,14 +48,14 @@
   color: #818181;
   display: block;
   width: 100%;
-  height: 100%;
+  height: 115%;
   font-weight: bold;
   padding: 10px;
 }
 
 .pagination a:hover{
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   background-color: #84b8eb;
   color: #FFF;
   border-radius: 100%;

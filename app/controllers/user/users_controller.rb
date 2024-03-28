@@ -1,6 +1,6 @@
 class User::UsersController < ApplicationController
    before_action :set_defaults, only: [:create]
-  before_action :authenticate_user!, only: [:show]
+   before_action :authenticate_user!, only: [:show]
   
   def index
     @users = User.all.order('created_at DESC').page(params[:page]).per(4)

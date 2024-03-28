@@ -3,7 +3,7 @@
     <div class="col">
       <h2 class="mb-4 text-center"><%= @user.name %>さんの会員詳細</h5>
         <div class="d-flex align-items-center pb-3">
-        <table class="mt-4">
+         <table class="mt-4">
           <tr>
             <th class="p-2">会員ID</th>
             <td class="pr-5"></td>
@@ -27,7 +27,6 @@
           <tr>
             <th class="p-2">会員ステータス</th>
             <td></td>
-              
               <% if @user.is_active %>
               <th class=”text-success p-2>制限中</th>
   　　　　　　　　　　<% else %>

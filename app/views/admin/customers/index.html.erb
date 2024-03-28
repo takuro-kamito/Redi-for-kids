@@ -1,27 +1,26 @@
 <h2 class="mb-4 text-center">会員一覧</h2>
-
-      <table class="table table-bordered">
-        <thead style="background-color: #e9ecef;">
-          <tr>
-            <th>会員ID</th>
-            <th>氏名</th>
-            <th>メールアドレス</th>
-            <th>ステータス</th>
-          </tr>
-        </thead>
-        <tbody>
-        <% @users.each do |user| %>
-          <tr>
-            <td class="align-middle"><%= user.id %></td>
-            <td class="align-middle"><%=link_to user.name + admin_users_path(user.id) %></td>
-            <td class="align-middle"><%= user.email %></td>
-              <% if user.is_active == true %><!--customerのステータスが有効の時-->
-                <td class="text-success">有効</td>
-              <% else %><!--それ以外-->
-                <td class="text-secondary">退会済</td>
-              <% end %><!--ifのend-->
-          </tr>
-        <% end %>
+ <table class="table table-bordered">
+  <thead style="background-color: #e9ecef;">
+   <tr>
+    <th>会員ID</th>
+     <th>氏名</th>
+      <th>メールアドレス</th>
+       <th>ステータス</th>
+        </tr>
+         </thead>
+          <tbody>
+           <% @users.each do |user| %>
+            <tr>
+             <td class="align-middle"><%= user.id %></td>
+              <td class="align-middle"><%=link_to user.name + admin_users_path(user.id) %></td>
+                <td class="align-middle"><%= user.email %></td>
+                 <% if user.is_active == true %>
+                 <td class="text-success">有効</td>
+                <% else %>
+              <td class="text-secondary">退会済</td>
+             <% end %>
+            </tr>
+          <% end %>
         </tbody>
       </table>
     </div>

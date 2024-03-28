@@ -2,48 +2,45 @@
   <div class='row'>
     <div class= "col-md-3 mt-5">
       <h3>ミーティング作成</h3>
-
-      <%= form_with(model: @community, url: admin_communities_path) do |f| %>
-      <%= f.hidden_field :admin_id %>
-      <div>
-        <%= f.label :name, "ミーティング名" %> <br />
-        <%= f.text_field :name, size: 30, class: 'form-control' %>
-      </div>
-      <div>
-        <%= f.label :explanation, "内容" %><br />
-        <%= f.text_area :explanation, size: "30x5", class: 'form_control' %>
-      </div>
-      <div>
-      <%= f.submit "作成する", class: "btn btn-sm btn-success px-5 mb-2 mt-2" %>
-      </div>
-  <% end %>
-  </div>
-
-    <div class="col-md-8 offset-md-1 mt-5">
+       <%= form_with(model: @community, url: admin_communities_path) do |f| %>
+        <%= f.hidden_field :admin_id %>
+         <div>
+          <%= f.label :name, "ミーティング名" %> <br />
+           <%= f.text_field :name, size: 30, class: 'form-control' %>
+            </div>
+             <div>
+              <%= f.label :explanation, "内容" %><br />
+               <%= f.text_area :explanation, size: "30x5", class: 'form_control' %>
+              </div>
+             <div>
+            <%= f.submit "作成する", class: "btn btn-sm btn-success px-5 mb-2 mt-2" %>
+          </div>
+         <% end %>
+        </div>
+      <div class="col-md-8 offset-md-1 mt-5">
     <h3>ミーティング一覧</h3>
-    <table class= "table mt-3" >
-      <tr>
-        <th class= "col-4">ミーティング名</th>
+  <table class= "table mt-3" >
+    <tr>
+      <th class= "col-4">ミーティング名</th>
         <th class= "col-7">内容</th>
-        <th class= "col-1"></th>
-      </tr>
-      <% @communities.each do |community| %>
-      <tr>
-        <td class="col-4"><%= link_to community.name, admin_community_path(community) %></td>
-        <td class%= "col-7"><%= truncate(community.explanation, length: 100) %></td>
-        <td><%= link_to "一覧", admin_community_post_boards_path(community), class: "btn btn-sm btn-outline-dark ml-2" %></td>
-      </tr>
-      <% end %>
+          <th class= "col-1"></th>
+            </tr>
+              <% @communities.each do |community| %>
+             <tr>
+            <td class="col-4"><%= link_to community.name, admin_community_path(community) %></td>
+           <td class%= "col-7"><%= truncate(community.explanation, length: 100) %></td>
+          <td><%= link_to "一覧", admin_community_post_boards_path(community), class: "btn btn-sm btn-outline-dark ml-2" %></td>
+         </tr>
+       <% end %>
       </table>
-    
-    　</div>
      </div>
     </div>
-    <div class="communities_paginate">
-       <%= paginate @communities %>
-    　</div>
-    <head>
-  <style>
+  </div>
+  <div class="communities_paginate">
+   <%= paginate @communities %>
+    </div>
+     <head>
+      <style>
 body {
   background-color: #FFFFF0; /* 背景色の指定 */
   }
@@ -87,6 +84,5 @@ body {
   padding: 10px;
 }
   </style>
-</head>
- 　
+
 　

@@ -1,31 +1,31 @@
-
 <div class="container mt-5">
   <h3><%= @community.name %>の投稿一覧</h3>
-  <table class="table mt-3">
-    <tr>
+    <table class="table mt-3">
+     <tr>
       <th>名前</th>
       <th>投稿</th>
       <th>日時</th>
       <th></th>
-      <%= link_to "投稿ページへ", admin_communities_path(@user), class: "btn btn-primary" %>
-    </tr>
-  <% @post_boards.each do |post_board| %>
-  <tr>
-    <td><%= post_board.user.name %></td>
-    <td><%= post_board.body %></td>
-    <td><%= post_board.created_at.strftime("%Y年%m月%M日 %H時%M分") %></td>
-    <td>
-      <%= link_to '削除', admin_community_post_board_path(post_board.community_id, post_board), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger" %>
-    </td>
-  </tr>
-  <% end %>
-  </table>
-  <div class="post_board_paginate">
-  <%= paginate @post_boards %>
-</div>
-</div>
-<head>
-  <style>
+       <%= link_to "投稿ページへ", admin_communities_path(@user), class: "btn btn-primary" %>
+        </tr>
+        <% @post_boards.each do |post_board| %>
+         <tr>
+          <td><%= post_board.user.name %></td>
+           <td><%= post_board.body %></td>
+            <td><%= post_board.created_at.strftime("%Y年%m月%M日 %H時%M分") %></td>
+             <td>
+              <%= link_to '削除', admin_community_post_board_path(post_board.community_id, post_board), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger" %>
+               </td>
+                </tr>
+                <% end %>
+               </table>
+              <div class="post_board_paginate">
+             <%= paginate @post_boards %>
+            </div>
+          </div>
+         <head>
+       <style>
+       
   body {
     background-color: #FFFFF0; /* 背景色の指定 */
   }

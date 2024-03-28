@@ -1,21 +1,20 @@
 <div class="container p-5">
   <div class="row">
     <div class="col-10 mx-auto text-center">
-    <h3 class="mb-5"><strong>本当に退会しますか？</strong></h3>
-
-      <p>
+    　<h3 class="mb-5"><strong>本当に退会しますか？</strong></h3>
+　　　　<p>
         退会すると、会員登録情報がなくなります。<br>
         退会する場合は、「退会する」をクリックしてください。
-      </p>
-
-      <div class="pt-3">
-        <%= link_to "退会しない", user_user_path(current_user.id), :class => "btn btn-primary ms-3 mr-5" %>
-        <%= link_to "退会する", user_users_withdraw_path, method: :patch, :class => "btn btn-danger ms-3", data: { confirm: "本当に退会しますか？" } %>
-      </div>
-    </div>
-  </div>
-</div>
+      　</p>
+　　　　<div class="pt-3">
+        　<%= link_to "退会しない", user_user_path(current_user.id), :class => "btn btn-primary ms-3 mr-5" %>
+        　<%= link_to "退会する", user_users_withdraw_path, method: :patch, :class => "btn btn-danger ms-3", data: { confirm: "本当に退会しますか？" } %>
+      　</div>
+    　</div>
+  　</div>
+　</div>
 <style>
+
   body {
     background-color: #FAA55C; /* 背景色の指定 */
   }

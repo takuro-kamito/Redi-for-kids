@@ -7,12 +7,11 @@
       他のユーザーとのメッセージが見つかりません
     <% end %>
   </h2>
-   <%= link_to "ルームへ戻る", user_rooms_path, class: "btn btn-primary btn-sm" %>
-
-<div class="message-box">
-  <% if @messages.present? %>
-    <% @messages.each do |m| %>
-      <% if m.user_id == current_user.id %>
+<%= link_to "ルームへ戻る", user_rooms_path, class: "btn btn-primary btn-sm" %>
+　<div class="message-box">
+  　<% if @messages.present? %>
+    　<% @messages.each do |m| %>
+     　 <% if m.user_id == current_user.id %>
         <div class="my-message">
           <div class="balloon">
           <p><%= m.body %></p>
@@ -28,25 +27,23 @@
       <% end %>
     <% end %>
   <% else %>
-    <div class="error-message">メッセージがありません。</div>
+<div class="error-message">メッセージがありません。</div>
   <% end %>
 </div>
 </div>
-<% if @message.present? %>
-  <div class="chat-form-box">
-    <%= form_for @message, url: user_messages_path do |f| %>
-      <div class="chat-form-group">
+　<% if @message.present? %>
+  　<div class="chat-form-box">
+    　<%= form_for @message, url: user_messages_path do |f| %>
+      　<div class="chat-form-group">
         <%= f.text_field :body %>
         <%= f.hidden_field :room_id, value: @room.id %>
         <%= f.submit "送信する" %>
-      </div>
-    <% end %>
-  </div>
-<% else %>
-  <div class="error-message">メッセージがありません。</div>
-<% end %>
-
-
+      　</div>
+    　<% end %>
+  　</div>
+　　<% else %>
+  　<div class="error-message">メッセージがありません。</div>
+　<% end %>
 <style>
 }
 .title {
@@ -109,5 +106,4 @@
   padding: 90px;
   
 }
-
 </style>

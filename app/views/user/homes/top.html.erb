@@ -1,8 +1,8 @@
 <h2><i class="far fa-lightbulb"></i><span>なんでんかんでんミーティングへようこそ</span></h2>
-<div class="bg_pattern Rectangles"></div>
-<div class="contents">
-  <%= image_tag "panda2.png",:size =>'500x600',class: 'pomuo' %>
-  <div class="balloon3-left">
+   <div class="bg_pattern Rectangles"></div>
+    <div class="contents">
+     <%= image_tag "panda2.png",:size =>'500x600',class: 'pomuo' %>
+    <div class="balloon3-left">
 <p>初めまして<br>
 なんだパンダと申します。<br>
 子供の気になることをみんなで話そう！<br>
@@ -10,24 +10,26 @@
 登録後は気になるミーティングに入って<br>
 たくさん話をしましょう！</p>
 </div>
- <div class="col-md-5 ">
-    <h3 class="my-3 p-2" style="background-color: #C68E46; color: white;">New Meeting</h3>
-    <table class="table">
-      <tbody>
-        <% @community.each do |community| %>
+  <div class="col-md-5 ">
+    <h3 class="my-3 p-2" style="background-color: #C68E46; color: white;">
+      New Meeting</h3>
+       <table class="table">
+        <tbody>
+         <% @community.each do |community| %>
           <tr class="list"style="background-color: rgba(252, 250, 247, 0.2); ">
             <td><%= community.name %></td>
             <td><%= community.explanation %></td>
-            <% if user_signed_in? %>
+              <% if user_signed_in? %>
               <td>
-            <%= link_to "参加", user_community_post_boards_path(community), class: "btn btn-primary" %>
-            <% end %>
+             <%= link_to "参加", user_community_post_boards_path(community),
+            class: "btn btn-primary" %>
+           <% end %>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <div class="users_paginate">
-    <%= paginate @community %>
+         <% end %>
+        </tbody>
+       </table>
+      <div class="users_paginate">
+     <%= paginate @community %>
    </div>
   </div>
 </div>

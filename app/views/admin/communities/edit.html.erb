@@ -1,26 +1,21 @@
 <div class="container">
   <h3 class="row py-4">ミーティング編集</h3>
-
-  <%= form_with model: @community, url: admin_community_path(@community) do |f| %>
-
+   <%= form_with model: @community, url: admin_community_path(@community) do |f| %>
    <div class="row mt-2">
-     <h4 class="col-3">コミュニティ名</h4>
+    <h4 class="col-3">コミュニティ名</h4>
      <div class="col-8"><%= f.text_field :name, size: 40, class: 'form-control' %></div>
-     </div>
-
-     <div class="row mt-2">
-       <h4 class="col-3">説明</h4>
-       <div class="col-8"><%= f.text_area :explanation, size: "40x5", class: 'form_control' %></div>
-       </div>
-
-       <div class="row">
-         <%= f.submit '更新', class:"btn btn-success mt-3" %>
-       </div>
-       <% end %>
-    </div>
+      </div>
+       <div class="row mt-2">
+        <h4 class="col-3">説明</h4>
+         <div class="col-8"><%= f.text_area :explanation, size: "40x5", class: 'form_control' %></div>
+          </div>
+           <div class="row">
+          <%= f.submit '更新', class:"btn btn-success mt-3" %>
+         </div>
+        <% end %>
+      </div>
     <style>
   body {
   background-color: #FFFFF0; /* 背景色の指定 */
   }
-
 </style>

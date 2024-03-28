@@ -1,34 +1,33 @@
-
 <div class="container">
   <div class="row">
     <div class="col-md-8 mx-auto">
-
-      <h2>Edit Page</h2>
-
-      <%= form_with model: @user, url: user_user_path(@user) do |f| %>
-        <div class="form-group">
+　　　<h2>Edit Page</h2>
+　　　　<%= form_with model: @user, url: user_user_path(@user) do |f| %>
+        　<div class="form-group">
           <%= f.label :name %>
           <%= f.text_field :name, autofocus: true, id: "inputName", placeholder: "名前", class: "form-control name" %>
-        </div>
-        <div class="form-group">
+        　</div>
+        　<div class="form-group">
           <%= f.label :image %>
           <%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %>
-        </div>
-        <div class="form-group">
+        　</div>
+        　<div class="form-group">
           <%= f.label :introduction %>
           <%= f.text_area :introduction, autofocus: true, id: "inputIntroduction", class: "form-control" %>
         </div>
-       <div class="form-group">
+       　<div class="form-group">
             <%= f.submit "Update", class: 'btn btn-primary' %>
-            <span class="ml-5"> <%= link_to "退会する", user_users_unsubscribe_path, class: "btn btn-danger" %> </span>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
+            　<span class="ml-5"> <%= link_to "退会する", user_users_unsubscribe_path, class: "btn btn-danger" %> </span>
+          　</div>
+        　</div>
+      　<% end %>
+    　</div>
+  　</div>
+　</div>
 <style>
+
   body {
     background-color: #FAA55C; /* 背景色の指定 */
   }
+  
 </style>

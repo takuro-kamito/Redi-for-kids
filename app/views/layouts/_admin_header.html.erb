@@ -4,13 +4,13 @@
       <%= link_to(root_path, class: "navbar-brand") do %>
         <%= image_tag("logo-1.png", alt: "ロゴ", style: "width: 50px; height: auto;") %>
           <% end %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
-        <% if admin_signed_in? %>
-        <div class="mt-3 mr-5" style="color: white;">
+           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+              </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                  <ul class="navbar-nav ml-auto">
+                   <% if admin_signed_in? %>
+                    <div class="mt-3 mr-5" style="color: white;">
               管理人ページ
             </div>
           <li>

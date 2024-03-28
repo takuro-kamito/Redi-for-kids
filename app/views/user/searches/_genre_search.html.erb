@@ -3,14 +3,12 @@
       <th style="color:#A07B35; font-family:'Times New Roman'; font-weight:bold; font-size:20px;" >Community</th>
     </tr>
   <tbody style="background-color: background-color: white; ">
-     
     <% Genre.all.each do |genre| %>
     <tr>
       <td>
         <%= link_to genre.name, user_user_genre_search_path(genre.id), method: :get, :style => "color: #A07B35;" %>
       </td>
     </tr>
-    
-    <% end %>
+     <% end %>
   </tbody>
 </table>

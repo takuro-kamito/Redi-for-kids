@@ -5,30 +5,29 @@
       <div class="d-flex flex-column align-items-start">
         <div style="text-align: left">
           <%= image_tag "panda2.png", size: '450x600', class: 'pomuo' %>
-          <div class="balloon3-left ml-4">
+           <div class="balloon3-left ml-4">
                    <p>        <br>
                    会員の方は <br>
                    こちらからだよ <br>
                    クリック<br>
-                   
-            <%= render "user/shared/links" %>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-8">
-<% if flash[:notice] %>
+                   <%= render "user/shared/links" %>
+                 </p>
+               </div>
+             </div>
+           </div>
+         </div>
+       <div class="col-8">
+     <% if flash[:notice] %>
   <div class="alert alert-danger">
-    <%= flash[:notice] %>
+<%= flash[:notice] %>
   </div>
-<% end %>
-      <h2 class="md-4 text-center">新規会員登録</h2>
+   <% end %>
+    <h2 class="md-4 text-center">新規会員登録</h2>
        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
        <%= render "user/shared/error_messages", resource: resource %>
-      <table>
-        <tbody>
-          <tr>
+        <table>
+          <tbody>
+            <tr>
             <td class="p-1">名前</td>
             <td class="p-1"><%= f.label :name, "(名前)" %></td>
             <td><%= f.text_field :name %></td>
@@ -55,13 +54,13 @@
             <td></td>
             <td></td>
             <td class="p-4"><%= f.submit "サインアップ", class:"btn btn-success", style: "width: 150px;" %></td>
-          </tr>
-        </tbody>
-      </table>
-      <% end %>
+            </tr>
+          </tbody>
+         </table>
+        <% end %>
       </div>
     </div>
- </div>
+  </div>
 <style>
 
 .md-4 {
