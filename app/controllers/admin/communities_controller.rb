@@ -9,14 +9,8 @@ class Admin::CommunitiesController < ApplicationController
     @communities = Community.all # @communitiesに値をセットする
     @community = Community.new(community_params)
     @community.admin_id = current_admin.id
-    if @community.save
-      flash[:notice] = "登録に成功しました。"
-      redirect_to admin_communities_path(@community)
-    else
-      flash.now[:alert] = "登録に失敗しました。"
-     
-      render :index
-    end
+    @community.save
+    redirect_to admin_communities_path(@community)
   end
 
   def show

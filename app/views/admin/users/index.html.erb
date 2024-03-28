@@ -6,6 +6,7 @@
          <thead style="background-color: #e9ecef;">
           <tr>
             <th>会員ID</th>
+            <th>アイコン</th>
             <th>氏名</th>
             <th>メールアドレス</th>
             <th>ステータス</th>
@@ -15,6 +16,7 @@
         <% @users.each do |user| %>
           <tr>
             <td class="align-middle"><%= user.id %></td>
+            <td class="align-middle"><%= image_tag user.get_profile_image(100, 100), class: "rounded-circle mx-auto d-block" %></td>
             <td class="align-middle"><%=link_to user.name, admin_user_path(user.id) %></td>
             <td class="align-middle"><%= user.email %></td>
             <td class="<%= user.status == '有効' ? 'text-warning' : 'text-success' %>"><%= user.status %></td>
@@ -59,15 +61,15 @@
   color: #818181;
   display: block;
   width: 100%;
-  height: 100%;
+  height: 115%;
   font-weight: bold;
   padding: 10px;
 }
 
 /* ページネーションの文字にカーソルを載せた時 */
 .pagination a:hover{
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   background-color: #84b8eb;
   color: #FFF;
   border-radius: 100%;
