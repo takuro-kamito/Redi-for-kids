@@ -33,8 +33,11 @@
 
 ## 設計書
 アプリケーション詳細設計
+
 https://docs.google.com/spreadsheets/d/16bjUHM8FLCnsEK4QlJJKOl02JB97iT3e/edit#gid=1076601422
+
 ER図
+
 https://github.com/takuro-kamito/Redi-for-kids/issues/1#issue-2216043862
 
 ## 開発環境
