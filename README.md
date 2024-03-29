@@ -32,8 +32,8 @@
 ・子供連れで楽しめるイベント情報や子育ての旬な情報を知りたい時
 
 ## 設計書
-
-後ほど作成予定
+アプリケーション詳細設計
+https://docs.google.com/spreadsheets/d/16bjUHM8FLCnsEK4QlJJKOl02JB97iT3e/edit#gid=1076601422
 
 ## 開発環境
 
