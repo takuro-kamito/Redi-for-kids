@@ -32,8 +32,13 @@
 ・子供連れで楽しめるイベント情報や子育ての旬な情報を知りたい時
 
 ## 設計書
+アプリケーション詳細設計
 
-後ほど作成予定
+https://docs.google.com/spreadsheets/d/16bjUHM8FLCnsEK4QlJJKOl02JB97iT3e/edit#gid=1076601422
+
+ER図
+
+https://github.com/takuro-kamito/Redi-for-kids/issues/1#issue-2216043862
 
 ## 開発環境
 
@@ -49,7 +54,15 @@
 
 ## 使用素材
 
-・フリーイラスト所有物を使用
+「著作権を考慮し、架空のデータを扱う予定です。なお今後、実在す
+
+るデータを利用する際には、事前に著作権保持者と契約を結んだ上で利用します」
+
+フリー素材
+
+ソコスト
+
+https://soco-st.com/
 
 
 
