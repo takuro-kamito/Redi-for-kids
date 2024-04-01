@@ -10,7 +10,7 @@ class User::PostBoardsController < ApplicationController
   def create
     @community = Community.find(params[:community_id]) # 選択したコミュニティを取得
     @post_boards = @community.post_boards
-    @post_board = @community.post_boards.build(post_board_params)
+    @post_board = @community.post_boards.build(post_board_params) #buildメソッド　アソシエーションを使用して、モデルから取得し新しいオブジェクトを作成
     @post_board.user_id = current_user.id
     if @post_board.save
       flash[:notice] = "成功しました。"

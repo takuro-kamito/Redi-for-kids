@@ -2,6 +2,7 @@
   <h3><%= @community.name %>の投稿一覧</h3>
     <table class="table mt-3">
      <tr>
+      <th>アイコン</th>
       <th>名前</th>
       <th>投稿</th>
       <th>日時</th>
@@ -10,7 +11,8 @@
         </tr>
         <% @post_boards.each do |post_board| %>
          <tr>
-          <td><%= post_board.user.name %></td>
+           <td><%= image_tag post_board.user.get_profile_image(60, 60), class: "rounded-circle mx-auto d-block" %></td>
+          <td><%= link_to post_board.user.name, admin_user_path(post_board.user.id) %></td>
            <td><%= post_board.body %></td>
             <td><%= post_board.created_at.strftime("%Y年%m月%M日 %H時%M分") %></td>
              <td>

@@ -10,6 +10,11 @@
             <td class="p-2"><%= @user.id %></td>
           </tr>
           <tr>
+            <th class="p-2">アイコン</th>
+            <td class="pr-5"></td>
+            <td class="p-2"><%= image_tag @user.get_profile_image(100, 100) %></td>
+          </tr>
+          <tr>
             <th class="p-2">氏名</th>
             <td></td>
             <td class="p-2"><%= @user.name %></td>

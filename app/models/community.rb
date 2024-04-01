@@ -1,6 +1,7 @@
 class Community < ApplicationRecord
   has_many :post_boards, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  belongs_to :user
    validates :name, :explanation, presence: true
  
   def comment_count

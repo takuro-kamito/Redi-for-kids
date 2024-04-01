@@ -5,7 +5,7 @@ def create
     @message = Message.new(message_params)
     @message.user_id = current_user.id
     @message.save
-      redirect_to user_room_path(@message.room)
+    redirect_to user_room_path(@message.room)
     
 end
 
