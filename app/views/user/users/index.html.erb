@@ -19,7 +19,7 @@
     </div>
     <div class="text-center">
   <h2>Member</h2>
-  <div class="mx-auto" style="background-color: rgba(252, 250, 247, 0.2); color: white; width: 150%">
+  <div class="mx-auto" style="background-color: rgba(252, 250, 247, 0.2); color: white; width: 140%">
   <table class="table">
     <thead>
       <tr>
@@ -30,6 +30,7 @@
     </thead>
     <tbody>
       <% @users.each do |user| %>
+      <% if user != current_user %>
         <tr>
           <td><%= image_tag user.get_profile_image(100, 100), class: "rounded-circle mx-auto d-block" %></td>
           <td><%= user.name %></td>
@@ -37,6 +38,7 @@
             <%= link_to "My page", user_user_path(user.id), class: "btn btn-primary btn-cute"  %>
           </td>
          </tr>
+         <% end %>
         <% end %>
        </tbody>
       </table>
@@ -101,7 +103,7 @@
   padding: 0 80px;
   width: 330px;
   height: 200px;
-  line-height: 115px
+  line-height: 105px
   text-align: center;
   color: #FFF;
   font-size: 16px;

@@ -7,8 +7,11 @@
 なんだパンダと申します。<br>
 子供の気になることをみんなで話そう！<br>
 まずは、気軽に登録してね！<br>
-登録後は気になるミーティングに入って<br>
-たくさん話をしましょう！</p>
+登録前に観覧出来ます。<br>
+<% if !user_signed_in? %>
+<%= link_to 'ゲストログイン（閲覧用）', user_homes_guest_sign_in_path, method: :post %>
+<% end %>
+</p>
 </div>
   <div class="col-md-5 ">
     <h3 class="my-3 p-2" style="background-color: #C68E46; color: white;">

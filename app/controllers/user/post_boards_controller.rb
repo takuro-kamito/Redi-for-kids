@@ -1,10 +1,21 @@
 class User::PostBoardsController < ApplicationController
-  
+
   def index
     @community = Community.find(params[:community_id])
     @post_board = PostBoard.new
     @post_boards = @community.post_boards
     @users = User.all
+    @sort = params[:sort]
+     if @sort == "newest"
+    @post_boards = @post_boards.order(created_at: :desc)
+     elsif @sort == "oldest"
+    @post_boards = @post_boards.order(created_at: :asc)
+     end
+  
+  @users = User.all
+
+  # 追加コード
+  @users = @post_boards.map(&:user).uniq
   end
 
   def create
@@ -20,7 +31,7 @@ class User::PostBoardsController < ApplicationController
       render :index
     end
   end
-  
+
     def destoroy
        @post_board = PostBoards.find(params[:id]) # 削除する投稿を取得
     if @post_boad.user_id == current_user.id # ログインユーザーと投稿のユーザーが一致しているかチェック
