@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:passwords], controllers: {
     registrations: "admin/registrations",
     sessions: "admin/sessions"
-    
+
   }
-    
+
     root to: "user/homes#top"
     post 'user/homes/guest_sign_in', to: 'user/homes#guest_sign_in'
   namespace :user do
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
     resources :rooms, only: [:create, :index, :show]
     resources :communities, only: [:index, :show] do
-    resources :post_boards, only: [:index, :create,:edit,:update,:destroy]
+    resources :post_boards, only: [:index, :create,:edit,:update,:destroy] 
     resource  :favorites, only: [:create, :destroy]
     end
   end

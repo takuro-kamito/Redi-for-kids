@@ -6,11 +6,13 @@ class User::PostBoardsController < ApplicationController
     @post_boards = @community.post_boards
     @users = User.all
     @sort = params[:sort]
-     if @sort == "newest"
+  if @sort == "newest"
     @post_boards = @post_boards.order(created_at: :desc)
-     elsif @sort == "oldest"
+  elsif @sort == "oldest"
     @post_boards = @post_boards.order(created_at: :asc)
-     end
+  else
+    @post_boards = @community.post_boards.order(created_at: :desc)
+  end
   
   @users = User.all
 
