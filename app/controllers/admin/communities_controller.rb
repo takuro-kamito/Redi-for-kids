@@ -4,13 +4,17 @@ class Admin::CommunitiesController < ApplicationController
     @community = Community.new
     @communities = Community.all.order('created_at DESC').page(params[:page]).per(4)
   end
+  
 
   def create
     @communities = Community.all # @communitiesに値をセットする
     @community = Community.new(community_params)
-    @community.admin_id = current_admin.id
-    @community.save
+     if @community.save
     redirect_to admin_communities_path(@community)
+　  else
+    flash[:notice] = @community.errors.full_messages.first
+    redirect_to request.referer
+     end
   end
 
   def show
@@ -36,6 +40,6 @@ class Admin::CommunitiesController < ApplicationController
   private
 
   def community_params
-    params.require(:community).permit(:name, :explanation, :admin_id)
+    params.require(:community).permit(:name, :explanation, :admin_id, :genre_id)
   end
 end

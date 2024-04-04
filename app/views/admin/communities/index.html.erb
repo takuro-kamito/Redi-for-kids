@@ -1,9 +1,15 @@
+<div class="col-8">
+      <% if flash[:notice] %>
+      <div class="alert alert-danger">
+        <%= flash[:notice] %>
+        <% end %>
+      </div>
 <div class="container">
   <div class='row'>
     <div class= "col-md-3 mt-5">
       <h3>ミーティング作成</h3>
        <%= form_with(model: @community, url: admin_communities_path) do |f| %>
-        <%= f.hidden_field :admin_id %>
+        <%= f.hidden_field :user_id %>
          <div>
           <%= f.label :name, "ミーティング名" %> <br />
            <%= f.text_field :name, size: 30, class: 'form-control' %>
@@ -12,6 +18,11 @@
               <%= f.label :explanation, "内容" %><br />
                <%= f.text_area :explanation, size: "30x5", class: 'form_control' %>
               </div>
+              <div>
+              <th class="p-1"><%= f.label "ジャンル" %></th><!--ジャンルidを全部呼び出してnameで表示、itemテーブルにgenre_idカラムとして保存,include_blankは空白の時に表示される文章らしいです。-->
+            <td></td>
+            <td class="p-2"><%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "--選択してください--" %></td>
+            </div>
              <div>
             <%= f.submit "作成する", class: "btn btn-sm btn-success px-5 mb-2 mt-2" %>
           </div>

@@ -2,8 +2,10 @@ class Community < ApplicationRecord
   has_many :post_boards, dependent: :destroy
   has_many :favorites, dependent: :destroy
   belongs_to :user
+  belongs_to :genre
+
    validates :name, :explanation, presence: true
- 
+
   def comment_count
     post_boards.count
   end
@@ -11,7 +13,7 @@ class Community < ApplicationRecord
    def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
    end
-  
+
   def self.search_for(content, method)
     if method == 'perfect'
       Community.where(name: content)
