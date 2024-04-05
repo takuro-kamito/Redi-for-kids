@@ -1,6 +1,6 @@
 class User::CommunitiesController < ApplicationController
   def index
-    @communities = Community.all.order('created_at DESC').page(params[:page]).per(3)
+    @communities = Community.all.order(comment_count: :desc)
   end
   
   def show

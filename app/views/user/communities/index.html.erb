@@ -1,38 +1,53 @@
 <div class="bg_pattern Rectangles"></div>
 <div class="container">
   <div class='row mt-5'>
-    <h2><i class="far fa-lightbulb"></i><span>なんでんかんでんミーティング</span></h2>
-    
+    <div class="col-md-6">
+      <h2><i class="far fa-lightbulb"></i><span>新着ミーティング</span></h2>
       <div class="container">
-        <div class='row mt-3'>
-          <% @communities.each do |community| %>
-          <div class="col-md-4">
+        <%= render partial: 'user/searches/genre_search', locals: { genre: @genre } %>
+        <% @communities.each do |community| %>
+          <% if community.created_at >= Time.zone.now - 1.day %>
             <div class="card mb-3">
               <div class="card-body">
                 <h5 class="card-title"><%= community.name %></h5>
-                <p class="card-text"><%= community.explanation %></p>
-                  <%= link_to "参加する", user_community_post_boards_path(community), class: "btn btn-primary" %>
-                  <div class="comment-index">
-                    <div class="bubble">
+                <%= link_to "参加する", user_community_post_boards_path(community), class: "btn btn-primary" %>
+                <div class="comment-index">
+                  <div class="bubble">
                     <div><i class="fas fa-comment"></i>
-                     <%= community.comment_count %>
-                     </div>
-                     </div>
+                      <%= community.comment_count %>
                     </div>
+                  </div>
+                </div>
                 <%= render 'user/favorites/favorite', community: community %>
               </div>
             </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h2><i class="far fa-lightbulb"></i><span>コメント数が多いミーティング</span></h2>
+      <div class="container">
+        <% @communities.order(comment_count: :desc).each do |community| %>
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title"><%= community.name %></h5>
+              <%= link_to "参加する", user_community_post_boards_path(community), class: "btn btn-primary" %>
+              <div class="comment-index">
+                <div class="bubble">
+                  <div><i class="fas fa-comment"></i>
+                    <%= community.comment_count %>
+                  </div>
+                </div>
+              </div>
+              <%= render 'user/favorites/favorite', community: community %>
+            </div>
           </div>
         <% end %>
-        <%= render 'user/searches/genre_search', genres: @genres %>
-      <div class="communities_paginate">
-    <%= paginate @communities %>
-   </div>
- </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-<head>
   <style>
  comment-index {
   display: flex;

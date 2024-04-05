@@ -1,14 +1,39 @@
-<table class="table" style="width: 20%;">
-  <tr>
-      <th style="color:#A07B35; font-family:'Times New Roman'; font-weight:bold; font-size:20px;" >Community</th>
-    </tr>
-  <tbody style="background-color: background-color: white; ">
-    <% Genre.all.each do |genre| %>
-    <tr>
-      <td>
-        <%= link_to genre.name, user_user_genre_search_path(genre.id), method: :get, :style => "color: #A07B35;" %>
-      </td>
-    </tr>
-     <% end %>
-  </tbody>
-</table>
+<h1 class="category-title">カテゴリー</h1>
+<ul class="genre-list">
+  <% Genre.all.each do |genre| %>
+    <li class="genre-item">
+      <%= link_to genre.name, user_user_genre_search_path(genre.id), method: :get, class: "genre-link" %>
+    </li>
+    <br> <!-- 改行用の要素を追加 -->
+  <% end %>
+</ul>
+<style>
+ .genre-list {
+    margin-top: 20px;
+  }
+
+  .genre-item {
+    margin-bottom: 10px;
+  }
+
+  background-color: white;
+
+  padding: 0;
+
+  margin: 0;
+
+  list-style-type: none;
+
+}
+
+.genre-item {
+
+  margin: 10px 0;
+
+}
+
+.genre-link {
+
+  color: #A07B35;
+
+</style>
