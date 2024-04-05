@@ -8,7 +8,7 @@
   <div class='row'>
     <div class= "col-md-3 mt-5">
       <h3>ミーティング作成</h3>
-       <%= form_with(model: @community, url: admin_communities_path) do |f| %>
+       <%= form_with model: @community, url: admin_communities_path, method: :post do |f| %>
         <%= f.hidden_field :user_id %>
          <div>
           <%= f.label :name, "ミーティング名" %> <br />
