@@ -1,37 +1,14 @@
 <div class="bg_pattern Rectangles"></div>
-<div class="container">
-  <div class='row mt-5'>
+ <div class="container">
+  <div class='row mt-3'>
     <div class="col-md-6">
       <h2><i class="far fa-lightbulb"></i><span>新着ミーティング</span></h2>
-      <div class="container">
-        <%= render partial: 'user/searches/genre_search', locals: { genre: @genre } %>
-        <% @communities.each do |community| %>
-          <% if community.created_at >= Time.zone.now - 1.day %>
-            <div class="card mb-3">
-              <div class="card-body">
-                <h5 class="card-title"><%= community.name %></h5>
-                <%= link_to "参加する", user_community_post_boards_path(community), class: "btn btn-primary" %>
-                <div class="comment-index">
-                  <div class="bubble">
-                    <div><i class="fas fa-comment"></i>
-                      <%= community.comment_count %>
-                    </div>
-                  </div>
-                </div>
-                <%= render 'user/favorites/favorite', community: community %>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <h2><i class="far fa-lightbulb"></i><span>コメント数が多いミーティング</span></h2>
-      <div class="container">
-        <% @communities.order(comment_count: :desc).each do |community| %>
+      <% @communities.where("created_at >= ?", 1.day.ago).limit(5).each do |community| %>
+        <% if community.created_at >= Time.zone.now - 1.day %>
           <div class="card mb-3">
             <div class="card-body">
               <h5 class="card-title"><%= community.name %></h5>
+              <h5 class="card-title"><%= community.explanation %></h5>
               <%= link_to "参加する", user_community_post_boards_path(community), class: "btn btn-primary" %>
               <div class="comment-index">
                 <div class="bubble">
@@ -44,10 +21,31 @@
             </div>
           </div>
         <% end %>
-      </div>
+      <% end %>
     </div>
+    <div class="col-md-6">
+      <h2><i class="far fa-lightbulb"></i><span>人気のミーティング</span></h2>
+      <% @communities.limit(5).each do |community| %>
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title"><%= community.name %></h5>
+            <h5 class="card-title"><%= community.explanation %></h5>
+            <%= link_to "参加する", user_community_post_boards_path(community), class: "btn btn-primary" %>
+            <div class="comment-index">
+              <div class="bubble">
+                <div><i class="fas fa-comment"></i>
+                  <%= community.comment_count %>
+                </div>
+              </div>
+            </div>
+            <%= render 'user/favorites/favorite', community: community %>
+          </div>
+        </div>
+      <% end %>
+      </div>
   </div>
 </div>
+<%= render partial: 'user/searches/genre_search', locals: { genre: @genre } %>
   <style>
  comment-index {
   display: flex;
@@ -61,54 +59,36 @@
   border-radius: ・・・;
 }
 
-  h2 {
+ h2 {
   position: relative;
-  padding: 1.5rem;
-  text-align: center;
-  border: 2px solid #000;
-  background: #fff;
-}
-
-h2:before,
-h2:after {
-  position: absolute;
-  content: '';
+  padding: 1.5rem 2rem;
+  border: 3px solid #d8d8d8;
+  border-radius: 10px;
+  background: #FFFFF0;
 }
 
 h2:before {
-  top: -40px;
-  left: calc(50% - 40px);
-  width: 80px;
-  height: 80px;
-  border: 2px solid #000;
-  border-radius: 50%;
-  background: #fff;
+  position: absolute;
+  bottom: -14px;
+  left: 1em;
+  width: 0;
+  height: 0;
+  content: '';
+  border-width: 14px 12px 0 12px;
+  border-style: solid;
+  border-color: #d8d8d8 transparent transparent transparent;
 }
 
 h2:after {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #fff;
-}
-
-h2 i {
-  font-size: 30px;
-  font-size: 3rem;
-  line-height: 60px;
   position: absolute;
-  z-index: 1;
-  top: -40px;
-  left: calc(50% - 40px);
-  width: 80px;
-  height: 60px;
-  text-align: center;
-}
-
-h2 span {
-  position: relative;
-  z-index: 1;
+  bottom: -10px;
+  left: 1em;
+  width: 0;
+  height: 0;
+  content: '';
+  border-width: 14px 12px 0 12px;
+  border-style: solid;
+  border-color: #f9f9f9 transparent transparent transparent;
 }
 .communities_paginate{
   width: 100%;

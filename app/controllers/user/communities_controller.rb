@@ -1,6 +1,6 @@
 class User::CommunitiesController < ApplicationController
   def index
-    @communities = Community.all.order(comment_count: :desc)
+    @communities = Community.all
   end
   
   def show

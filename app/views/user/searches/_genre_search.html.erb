@@ -1,39 +1,54 @@
-<h1 class="category-title">カテゴリー</h1>
-<ul class="genre-list">
-  <% Genre.all.each do |genre| %>
-    <li class="genre-item">
-      <%= link_to genre.name, user_user_genre_search_path(genre.id), method: :get, class: "genre-link" %>
-    </li>
-    <br> <!-- 改行用の要素を追加 -->
-  <% end %>
-</ul>
+<div class="sidebar">
+  <div class="card">
+    <div class="card-body">
+      <h6>カテゴリー</h6>
+        <ul class="genre-list" style="display: flex; overflow-x: auto;">
+          <% Genre.all.each do |genre| %>
+            <li class="genre-item" style="white-space: nowrap; margin-right: 10px;">
+              <%= link_to user_user_genre_search_path(genre.id), method: :get, class: "genre-link" do %>
+                <div class="genre-tag"><%= genre.name %></div>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+    </div>
+  </div>
+</div>
 <style>
- .genre-list {
-    margin-top: 20px;
-  }
+h6 {
+  position: relative;
+  display: inline-block;
+  padding: 1rem 2rem 1rem 4rem;
+  color: #fff;
+  border-radius: 100vh 0 0 100vh;
+  background: #fa4141;
+}
 
-  .genre-item {
-    margin-bottom: 10px;
-  }
-
-  background-color: white;
-
+h6:before {
+  position: absolute;
+  top: calc(50% - 7px);
+  left: 10px;
+  width: 10px;
+  height: 10px;
+  content: '';
+  border-radius: 50%;
+  background: #fff;
+}
+.genre-tag {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+.sidebar .genre-list {
+  list-style: none;
   padding: 0;
-
-  margin: 0;
-
-  list-style-type: none;
-
 }
 
-.genre-item {
-
-  margin: 10px 0;
-
+.sidebar .genre-item::before {
+  content: "";
 }
-
-.genre-link {
-
-  color: #A07B35;
-
 </style>

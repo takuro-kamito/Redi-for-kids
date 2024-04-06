@@ -16,7 +16,7 @@
            <td><%= post_board.body %></td>
             <td><%= post_board.created_at.strftime("%Y年%m月%M日 %H時%M分") %></td>
              <td>
-              <%= link_to '削除', admin_community_post_board_path(post_board.community_id, post_board), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger" %>
+              <%= link_to '削除', admin_community_post_board_path(post_board.community_id, post_board) %>
                </td>
                 </tr>
                 <% end %>
