@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'notifications/index'
   # 顧客用
   # url/users/sign_in
   devise_for :users, skip: [:passwords], controllers: {
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
     get '/search', to: 'searches#search', as: 'search'
     get 'users/unsubscribe' => 'users#unsubscribe'
     patch '/users/withdraw' => 'users#withdraw'
+    resources :notifications, only: :index
     resources :posts
     resources :users, only: [:index, :show, :edit, :update, :destroy]
     get "users/:id/favorite" => "users#favorites",as: 'favorites_community'

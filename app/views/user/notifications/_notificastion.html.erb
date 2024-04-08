@@ -1,0 +1,13 @@
+<% notifications.each do |notification| %>
+  <% visitor = notification.visitor %>
+  <% visited = notification.visited %>
+  <div>
+    <%= link_to user_room_path(notification.room_id) do %>
+      <%= visitor.name %>さんが
+    <% end %>
+    <% if notification.action=='dm' %>
+    あなたにDMを送りました
+    <%= notification.created_at.strftime("%Y-%m-%d %H:%M:%S") %>に送信
+  </div>
+<% end %>
+<% end %>

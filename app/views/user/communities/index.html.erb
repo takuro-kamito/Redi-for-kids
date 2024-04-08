@@ -3,7 +3,7 @@
   <div class='row mt-3'>
     <div class="col-md-6">
       <h2><i class="far fa-lightbulb"></i><span>新着ミーティング</span></h2>
-      <% @communities.where("created_at >= ?", 1.day.ago).limit(5).each do |community| %>
+      <% @communities.where("created_at >= ?", 1.day.ago).limit(4).each do |community| %>
         <% if community.created_at >= Time.zone.now - 1.day %>
           <div class="card mb-3">
             <div class="card-body">
@@ -25,7 +25,7 @@
     </div>
     <div class="col-md-6">
       <h2><i class="far fa-lightbulb"></i><span>人気のミーティング</span></h2>
-      <% @communities.limit(5).each do |community| %>
+      <% @communities.limit(4).each do |community| %>
         <div class="card mb-3">
           <div class="card-body">
             <h5 class="card-title"><%= community.name %></h5>
@@ -47,8 +47,8 @@
 </div>
 <%= render partial: 'user/searches/genre_search', locals: { genre: @genre } %>
   <style>
- comment-index {
-  display: flex;
+.card-body{
+  background-color: #FFFFF0;
 }
 .comment-index .bubble {
   position: absolute;
