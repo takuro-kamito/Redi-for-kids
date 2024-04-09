@@ -26,10 +26,9 @@
 <div class="fixed-bottom">
   <%= render partial: 'user/searches/genre_search', locals: { genres: @genres} %>
 </div>
-<div class="genre_paginate">
+ <div class="genre_paginate">
    <%= paginate @genres %>
-    </div>
-    
+  </div>
 <style>
 
 .card-body{

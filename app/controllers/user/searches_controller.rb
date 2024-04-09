@@ -19,7 +19,7 @@ render 'search_results'
  def genre_search
   @genre = Genre.find(params[:id])
   @communities = Community.where(genre_id: @genre.id)
-  @genres = Genre.all.order('created_at DESC').page(params[:page]).per(3)
+  @genres = Genre.order('created_at DESC').page(params[:page]).per(3)
  end
  
   def community_search

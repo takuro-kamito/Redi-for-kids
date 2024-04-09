@@ -1,13 +1,86 @@
+<h2 class="notification-title">[新着通知]</h2>
 <% notifications.each do |notification| %>
   <% visitor = notification.visitor %>
   <% visited = notification.visited %>
-  <div>
+  <div class="notification-card">
     <%= link_to user_room_path(notification.room_id) do %>
-      <%= visitor.name %>さんが
+      <%= visitor.name %>
     <% end %>
-    <% if notification.action=='dm' %>
-    あなたにDMを送りました
-    <%= notification.created_at.strftime("%Y-%m-%d %H:%M:%S") %>に送信
+    <% if notification.action == 'dm' %>
+    <h4><i class="fas fa-envelope"></i>DMを送りました</h4>
+    <% end %>
+    <p>投稿時期： <%= time_ago_in_words(notification.created_at).upcase %>前</p>
+    
   </div>
 <% end %>
-<% end %>
+<div class="users_paginate">
+    <%= paginate @notifications %>
+
+<style>
+.users_paginate{
+  width: 100%;
+  margin: auto;
+}
+
+/* ページネーション全体 */
+.pagination{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding: 60px;
+}
+
+/* ページネーションのspan */
+.pagination span{
+  text-align: center;
+  width: 50px;
+  font-size: 20px;
+}
+
+/* ページネーションのリンク文字（a） */
+.pagination a{
+  color: #818181;
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-weight: bold;
+  padding: 10px;
+}
+
+/* ページネーションの文字にカーソルを載せた時 */
+.pagination a:hover{
+  width: 50px;
+  height: 50px;
+  background-color: #84b8eb;
+  color: #FFF;
+  border-radius: 100%;
+  padding: 10px;
+}
+
+/* 現在のページの数字についての表記 */
+.current{
+  font-weight: bold;
+  color: #84b8eb;
+  padding: 10px;
+}
+ .notification-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center; /* カード内のテキストを中央に寄せる */
+}
+
+.card-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  display: inline-block; /* カード内のテキストを中央に寄せるために必要 */
+}
+
+.notification-title {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: center; /* タイトルを中央に寄せる */
+}
+</style>

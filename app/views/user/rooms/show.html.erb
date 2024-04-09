@@ -16,6 +16,7 @@
           <div class="balloon">
           <p><%= m.body %></p>
           <p><%= m.user.name %></p> 
+          <p><%= m.created_at.strftime("%m/%d %H:%M") %></p>
           </div>
         </div>
       <% else %>

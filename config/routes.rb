@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     get '/search', to: 'searches#search', as: 'search'
     get 'users/unsubscribe' => 'users#unsubscribe'
     patch '/users/withdraw' => 'users#withdraw'
-    resources :notifications, only: :index
+    resources :notifications, only: [:index]
     resources :posts
     resources :users, only: [:index, :show, :edit, :update, :destroy]
     get "users/:id/favorite" => "users#favorites",as: 'favorites_community'
@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    root to: "homes#top"
+    root to: "users#index"
     resources :users, only: [:index, :show, :edit, :update]
     resources :genres, only: [:create, :index, :edit, :update]
     resources :communities, only: [:index, :create, :show, :edit, :update, :destroy] do
