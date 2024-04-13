@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :user do
+    get 'header/show'
+  end
   get 'notifications/index'
   # 顧客用
   # url/users/sign_in
@@ -23,8 +26,7 @@ Rails.application.routes.draw do
     get '/search', to: 'searches#search', as: 'search'
     get 'users/unsubscribe' => 'users#unsubscribe'
     patch '/users/withdraw' => 'users#withdraw'
-    resources :notifications, only: [:index]
-    resources :posts
+    resources :notifications, only: [:index, :show, :destroy]
     resources :users, only: [:index, :show, :edit, :update, :destroy]
     get "users/:id/favorite" => "users#favorites",as: 'favorites_community'
     resources :messages, only: [:create]

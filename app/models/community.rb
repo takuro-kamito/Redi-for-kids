@@ -1,7 +1,7 @@
 class Community < ApplicationRecord
   has_many :post_boards, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  belongs_to :user,optional: true
+  belongs_to :user, optional: true
   belongs_to :genre
 
    validates :name, :explanation, presence: true

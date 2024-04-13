@@ -12,7 +12,7 @@ class Admin::GenresController < ApplicationController
 
   def index
     @genre = Genre.new
-    @genres = Genre.all
+    @genres = Genre.all.order('created_at DESC').page(params[:page]).per(7)
   end
 
   def edit

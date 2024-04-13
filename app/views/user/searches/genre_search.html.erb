@@ -15,6 +15,14 @@
                 <h5 class="card-title"><%= community.name %></h5>
                 <p class="card-text"><%= community.explanation %></p>
                 <%= link_to "参加する", user_community_post_boards_path(community), class: "btn btn-primary" %>
+                  <div class="comment-index">
+                  <div class="bubble">
+                    <div><i class="fas fa-comment"></i>
+                    <%= community.comment_count %>
+                    </div>
+                  </div>
+                </div>
+                <%= render 'user/favorites/favorite', community: community %>
               </div>
             </div>
           </div>
@@ -23,34 +31,46 @@
     </div>
   </div>
 </div>
+<div class="communities_paginate">
+<%= paginate @communities %>
+</div>
 <div class="fixed-bottom">
   <%= render partial: 'user/searches/genre_search', locals: { genres: @genres} %>
 </div>
- <div class="genre_paginate">
-   <%= paginate @genres %>
-  </div>
 <style>
-
+.comment-index .bubble {
+  position: absolute;
+  bottom: 15px; /* 上からではなく、下からの位置指定に修正 */
+  left: 55px;
+  color: #cc6600;
+  padding: 5px 5px;
+}
 .card-body{
   background-color: #FFFFF0;
 }
 
-.genre_paginate{
-  width: 100%;
-  margin: auto;
-}
-.pagination{
-  text-align: center;
-  display: flex;
-  justify-content: center;
+.communities_paginate {
+  position: fixed;
+  top: 530px;
+  transform: translate(300%, 30%);
 }
 
+/* ページネーション全体 */
+.pagination{
+   text-align: center;
+  display: flex;
+  justify-content: center;
+  height: 50px; /* 適宜変更してください */
+}
+
+/* ページネーションのspan */
 .pagination span{
   text-align: center;
   width: 50px;
   font-size: 20px;
 }
 
+/* ページネーションのリンク文字（a） */
 .pagination a{
   color: #818181;
   display: block;
@@ -60,6 +80,7 @@
   padding: 10px;
 }
 
+/* ページネーションの文字にカーソルを載せた時 */
 .pagination a:hover{
   width: 50px;
   height: 50px;
@@ -68,6 +89,8 @@
   border-radius: 100%;
   padding: 10px;
 }
+
+/* 現在のページの数字についての表記 */
 .current{
   font-weight: bold;
   color: #84b8eb;
@@ -75,7 +98,7 @@
 }
 .fixed-bottom {
     position: fixed;
-    bottom: 50px;
+    bottom: -10px;
     width: 100%;
   }
   .bg_pattern {

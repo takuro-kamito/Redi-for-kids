@@ -19,14 +19,8 @@ render 'search_results'
  def genre_search
   @genre = Genre.find(params[:id])
   @communities = Community.where(genre_id: @genre.id)
-  @genres = Genre.order('created_at DESC').page(params[:page]).per(4)
+  @genres = Genre.all
+  @communities = @genre.communities.order('created_at DESC').page(params[:page]).per(4)
  end
 
-  def community_search
-    @word = params[:word]
-    @model = params[:model]
-    if @model == "community"
-      @communites = Community.looks(params[:search], params[:word])
-    end
-  end
 end

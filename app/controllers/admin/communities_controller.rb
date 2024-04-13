@@ -4,13 +4,13 @@ class Admin::CommunitiesController < ApplicationController
     @community = Community.new
     @communities = Community.all.order('created_at DESC').page(params[:page]).per(4)
   end
-  
+
 
   def create
     @communities = Community.all # @communitiesに値をセットする
     @community = Community.new(community_params)
     @community.user_id = params[:user_id]
-      @community.save
+    @community.save
     redirect_to admin_communities_path(@community)
   end
 
