@@ -9,6 +9,6 @@ class Admin::PostBoardsController < ApplicationController
     @post_board = PostBoard.find(params[:id])
     @community = @post_board.community
     @post_board.destroy
-  redirect_to admin_community_post_boards_path(community_id: @community.id)
+    redirect_to admin_community_post_boards_path(community_id: @community.id)
   end
 end

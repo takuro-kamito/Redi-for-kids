@@ -19,7 +19,7 @@
                <%= f.text_area :explanation, size: "30x5", class: 'form_control' %>
               </div>
               <div>
-              <th class="p-1"><%= f.label "ジャンル" %></th><!--ジャンルidを全部呼び出してnameで表示、itemテーブルにgenre_idカラムとして保存,include_blankは空白の時に表示される文章らしいです。-->
+              <th class="p-1"><%= f.label "ジャンル" %></th>
             <td></td>
             <td class="p-2"><%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "--選択してください--" %></td>
             </div>

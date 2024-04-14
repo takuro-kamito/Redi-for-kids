@@ -27,7 +27,7 @@ def self.guest
     end 
 end
 
-def self.search_for(content, method)
+def self.search_for(content, method) ##serch_forメソッドに条件を指定
     if method == 'perfect'
       User.where(name: content)
     elsif method == 'forward'
@@ -38,7 +38,7 @@ def self.search_for(content, method)
       User.where('name LIKE ?', '%' + (content || '') + '%')
     end
 end
-      def status
+      def status #admin側で選択をし、ログインの権限を変える
     if is_active
       "制限中"
     else

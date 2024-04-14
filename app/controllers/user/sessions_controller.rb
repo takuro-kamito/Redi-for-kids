@@ -45,6 +45,9 @@ end
 #     redirect_to new_user_registration_path
 #   end
 #   end
+
+#admmin側で制限中の場合ログインが出来ない権限
+
 def user_state
     user = User.find_by(email: params[:user][:email])
     if user && user.status != "制限中" # statusが制限中でなければログイン可能

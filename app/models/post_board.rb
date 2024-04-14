@@ -7,7 +7,7 @@ class PostBoard < ApplicationRecord
   
   POST_BOARD = "Post_board"
 
-  def self.search_for(content, method)
+  def self.search_for(content, method) #条件にbody(コメント内容)も検索出来る
   case method
   when "body"
     joins(:user).where('body LIKE ?', '%' + content.to_s)

@@ -9,10 +9,10 @@ class User::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @current_entry = Entry.where(user_id: current_user.id)
+    @current_entry = Entry.where(user_id: current_user.id)#現在ログインしているユーザーに関連するエントリーを取得し、`@current_entry`変数に代入。
     @another_entry = Entry.where(user_id: @user.id)
-    unless @user.id == current_user.id
-    @current_entry.each do |current|
+    unless @user.id == current_user.id #unless`文を使って、`@user`のIDが現在のユーザーのIDと一致しない場合の処理
+    @current_entry.each do |current| #@current_entry`と`@another_entry`のそれぞれのエントリーを繰り返し処理し、`room_id`が一致する場合に、`@is_room`を`true`に設定し、その`room_id`を`@room_id`変数に代入
       @another_entry.each do |another|
         if current.room_id == another.room_id
           @is_room = true
@@ -20,7 +20,7 @@ class User::UsersController < ApplicationController
         end
       end
     end
-    unless @is_room
+    unless @is_room #@is_room`が`false`の場合、新しい`Room`オブジェクトと`Entry`オブジェクトを作成し、`@room`変数と`@entry`変数にそれぞれ代入
       @room = Room.new
       @entry = Entry.new
     end
@@ -69,8 +69,8 @@ end
 
  def favorites
     @user = User.find(params[:id])
-    @favorites = Favorite.where(user_id: @user.id).pluck(:community_id)
-    @favorite_communities = Community.where(id: @favorites).order('created_at DESC').page(params[:page]).per(3)
+    @favorites = Favorite.where(user_id: @user.id).pluck(:community_id) #Favorite`モデルを使って、データベースから特定のユーザーの`user_id`に一致する行を選択し、`pluck`メソッドを使ってそれぞれの行の`community_id`の値を抽出
+    @favorite_communities = Community.where(id: @favorites).order('created_at DESC').page(params[:page]).per(3) #where(user_id: @user.id)`という条件にマッチする`Favorite`モデルのレコードを取得し、それらの`community_id`の値を配列として取得
  end
   
 
