@@ -14,7 +14,7 @@ class Community < ApplicationRecord
     favorites.where(user_id: user.id).exists? #`favorites`に対して`where(user_id: user.id)`という条件を指定し、その結果が存在するかどうかを判定。存在する場合は`true`を返し、存在しない場合は`false`を返す。
    end
 
-  def self.search_for(content, method)　#serch_forメソッドに条件を指定
+  def self.search_for(content, method) #serch_forメソッドに条件を指定
     if method == 'perfect'
       Community.where(name: content)
     elsif method == 'forward'

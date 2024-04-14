@@ -12,8 +12,8 @@
   <% end %>
 </div>
 　<h3 class="mt-3 mb-3 text-center"><%= @community.name %>Postboardへの投稿一覧</h3>
-　<%= link_to "新しい順", { :sort => "newest" } %>
-　<%= link_to "古い順", { :sort => "oldest" } %>
+　<%= link_to "<i class='fa-solid fa-arrow-up'></i> 新しい順".html_safe, { :sort => "newest" } %>
+　<%= link_to "<i class='fa-solid fa-arrow-up'></i> 古い順".html_safe, { :sort => "oldest" } %>
 　　<% @post_boards.each_with_index do |post_board, index| %>
     <% if post_board.id != nil %>
       <div class="card">
