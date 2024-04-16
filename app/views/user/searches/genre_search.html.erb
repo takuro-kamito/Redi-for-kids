@@ -50,9 +50,15 @@
 }
 
 .communities_paginate {
+
   position: fixed;
-  top: 530px;
-  transform: translate(300%, 30%);
+
+  top: 73%; /* ページ上部から中央に固定するためには50% */
+
+  left: 50%; /* ページ左側から中央に固定するためには50% */
+
+  transform: translate(-50%, -50%); /* このtransformの設定でセンターに固定されます */
+
 }
 
 /* ページネーション全体 */

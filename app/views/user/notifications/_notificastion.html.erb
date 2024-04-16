@@ -1,22 +1,18 @@
-<h2 class="notification-title">[新着通知]</h2>
-<!--繰り返し処理の各イテレーション（反復）で、特定の通知オブジェクトから発信者と受信者の関連オブジェクトを取得、それぞれ`visitor`と`visited`というローカル変数に代入-->
 <% notifications.each do |notification| %>
-  <% visitor = notification.visitor %>
-  <% visited = notification.visited %>
-  <div class="notification-card">
-    <%= image_tag visitor.get_profile_image(60, 60), class: "card-avatar rounded-circle" %>
-    <%= link_to user_room_path(notification.room_id) do %>
-    <%= visitor.name %>
-    <% end %>
-    <% if notification.action == 'dm' %>
-    <h4><i class="fas fa-envelope"></i>DMを送りました</h4>
-    <% end %>
-    <p>投稿時期： <%= time_ago_in_words(notification.created_at).upcase %>前</p>
-
-  </div>
+  <% if notification.action == 'dm' %>
+    <div class="notification-card">
+      <%= image_tag notification.visitor.get_profile_image(60, 60), class: "card-avatar rounded-circle" %>
+      <%= link_to user_room_path(notification.room_id) do %>
+        <%= notification.visitor.name %>
+      <% end %>
+      <h4><i class="fas fa-envelope"></i>DMを送りました</h4>
+      <p>投稿時期： <%= time_ago_in_words(notification.created_at).upcase %>前</p>
+    </div>
+  <% end %>
 <% end %>
 <div class="users_paginate">
     <%= paginate @notifications %>
+    </div>
 
 <style>
 .users_paginate{
