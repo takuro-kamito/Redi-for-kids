@@ -40,6 +40,10 @@ ER図
 
 https://github.com/takuro-kamito/Redi-for-kids/issues/1#issue-2216043862
 
+インフラ設計図
+
+https://github.com/takuro-kamito/Redi-for-kids/issues/2#issue-2247105834
+
 ## 開発環境
 
 ・OS : Linux(CentOS)
