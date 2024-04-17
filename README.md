@@ -44,6 +44,10 @@ https://github.com/takuro-kamito/Redi-for-kids/issues/1#issue-2216043862
 
 https://github.com/takuro-kamito/Redi-for-kids/issues/2#issue-2247105834
 
+インフラ構成図
+
+https://github.com/takuro-kamito/Redi-for-kids/issues/3#issue-2247106332
+
 ## 開発環境
 
 ・OS : Linux(CentOS)
