@@ -53,7 +53,7 @@ def user_state
     if user && user.status != "制限中" # statusが制限中でなければログイン可能
     else
       flash[:notice] = "メールアドレスが登録されていないか、制限中です。新規会員登録が必要です。"
-      redirect_to new_user_session_path
+      redirect_to new_session_path
     end
 end
 end

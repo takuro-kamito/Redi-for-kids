@@ -2,7 +2,7 @@
   <% if notification.action == 'dm' %>
     <div class="notification-card">
       <%= image_tag notification.visitor.get_profile_image(60, 60), class: "card-avatar rounded-circle" %>
-      <%= link_to user_room_path(notification.room_id) do %>
+      <%= link_to room_path(notification.room_id) do %>
         <%= notification.visitor.name %>
       <% end %>
       <h4><i class="fas fa-envelope"></i>DMを送りました</h4>

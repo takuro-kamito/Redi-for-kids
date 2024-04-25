@@ -5,7 +5,7 @@
         <ul class="genre-list" style="display: flex; overflow-x: auto;">
           <% Genre.all.each do |genre| %>
             <li class="genre-item" style="white-space: nowrap; margin-right: 10px;">
-              <%= link_to user_user_genre_search_path(genre.id), method: :get, class: "genre-link" do %>
+              <%= link_to user_genre_search_path(genre.id), method: :get, class: "genre-link" do %>
                 <div class="genre-tag"><%= genre.name %></div>
               <% end %>
             </li>

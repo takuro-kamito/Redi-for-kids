@@ -13,6 +13,6 @@ class User::NotificationsController < ApplicationController
     
   def destroy
     @notifications = current_user.notifications.destroy_all
-    redirect_to user_notifications_path
+    redirect_to notifications_path
   end
 end

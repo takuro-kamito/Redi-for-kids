@@ -35,7 +35,7 @@
           <td><%= image_tag user.get_profile_image(100, 100), class: "rounded-circle mx-auto d-block" %></td>
           <td><%= user.name %></td>
           <td>
-            <%= link_to "My page", user_user_path(user.id), class: "btn btn-primary btn-cute"  %>
+            <%= link_to "My page", user_path(user.id), class: "btn btn-primary btn-cute"  %>
           </td>
          </tr>
          <% end %>

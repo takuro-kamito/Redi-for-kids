@@ -25,7 +25,7 @@ def create
       notification.save if notification.valid?
       
 
-      redirect_to user_room_path(@message.room)
+      redirect_to room_path(@message.room)
     end
   else
     redirect_back(fallback_location: root_path)

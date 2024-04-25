@@ -1,7 +1,9 @@
 class User::UsersController < ApplicationController
    before_action :set_defaults, only: [:create]
    before_action :authenticate_user!, only: [:show]
-  
+   before_action :correct_user, only: [:edit, :update]
+
+
   def index
     @users = User.all.order('created_at DESC').page(params[:page]).per(4)
     @user = current_user
@@ -26,15 +28,15 @@ class User::UsersController < ApplicationController
     end
     end
   end
-  
+
   def create
     @user = User.new(user_params)
     if User.exists?(email: params[:email])
       flash[:notice] = "そのメールアドレスはすでに登録されています。"
-      redirect_to new_user_registration_path
+      redirect_to new_registration_path
     else
       @user = User.new(user_params)
-      
+
       if @user.save
         flash[:notice] = "新規登録が完了しました"
         redirect_to root_path
@@ -52,7 +54,7 @@ class User::UsersController < ApplicationController
   @user = User.find(params[:id])
   if @user.update(user_params)
     flash[:notice] = "ユーザーの更新に成功しました"
-    redirect_to user_user_path(@user)
+    redirect_to user_path(@user)
   else
     render :edit
   end
@@ -72,14 +74,18 @@ end
     @favorites = Favorite.where(user_id: @user.id).pluck(:community_id) #Favorite`モデルを使って、データベースから特定のユーザーの`user_id`に一致する行を選択し、`pluck`メソッドを使ってそれぞれの行の`community_id`の値を抽出
     @favorite_communities = Community.where(id: @favorites).order('created_at DESC').page(params[:page]).per(3) #where(user_id: @user.id)`という条件にマッチする`Favorite`モデルのレコードを取得し、それらの`community_id`の値を配列として取得
  end
-  
+
 
 private
 
 def user_params
   params.require(:user).permit(:admin,:name, :introduction, :profile_image, :is_active, :status, :email, :passwors)
 end
+ def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless @user == current_user
+ end
 def set_defaults
-    self.admin = true 
+    self.admin = true
 end
 end

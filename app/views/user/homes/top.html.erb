@@ -24,7 +24,7 @@
             <td><%= community.explanation %></td>
               <% if user_signed_in? %>
               <td>
-             <%= link_to "参加", user_community_post_boards_path(community),
+             <%= link_to "参加", community_post_boards_path(community),
             class: "btn btn-primary" %>
            <% end %>
           </tr>

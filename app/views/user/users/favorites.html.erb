@@ -2,7 +2,7 @@
  <div class="card">
   <div class="card-body">
     <h2>Bookmark</h2>
-     <%= link_to "My pageへ戻る", user_user_path, class: "btn btn-primary" %>
+     <%= link_to "My pageへ戻る", user_path, class: "btn btn-primary" %>
       <div class="row">
        <% @favorite_communities.each do |community| %>
         <div class="col-md-4">
@@ -10,9 +10,9 @@
             <div class="card-body">
               <h6 class="card-subtitle mb-2 text-muted"><%= community.name %></h6>
               <p class="card-text"><%= community.explanation %></p>
-              <%= link_to "参加する", user_community_post_boards_path(community), class: "btn btn-primary" %>
+              <%= link_to "参加する", community_post_boards_path(community), class: "btn btn-primary" %>
               <i class="fas fa-heart" style="color: red;"></i>
-              <%= link_to user_communities_path(community), class: "bookmark-link" do %>
+              <%= link_to communities_path(community), class: "bookmark-link" do %>
                 <i class="fas fa-bookmark"></i>
                 <% end %>
                </div>

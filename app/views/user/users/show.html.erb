@@ -48,14 +48,14 @@
                           <% if @user.id == current_user.id %>
                          <% if @user.email.present? %>
                         <div class="text-right">
-                      <%= link_to edit_user_user_path(@user) do %>
+                      <%= link_to edit_user_path(@user) do %>
                      <i class="fa fa-pencil-alt" style="font-size: 16px;"></i>
                    <% end %>
                   <% end %>
                  <% end %>
                 <% if @user.id == current_user.id %>
                <% if @user.email.present? %>
-              <%= link_to user_favorites_community_path(@user), class: 'icon-link' do %>
+              <%= link_to favorites_community_path(@user), class: 'icon-link' do %>
               <i class="fas fa-heart icon" style="border-radius: 50%; background-color: pink; padding: 10px;"></i>
              <span class="tooltip">お気に入り</span>
              <% end %>
@@ -64,13 +64,13 @@
          <% unless @user.id == current_user.id %>
         <% if @is_room == true %>
         <div class="text-right">
-       <%= link_to user_room_path(@room_id) do %>
+       <%= link_to room_path(@room_id) do %>
       <i class="fa fa-envelope"></i> Room
        <% end %>
        　</div>
         <% else %>
           <% @room ||= Room.new %>
-           <%= form_for @room, url: user_rooms_path do |f| %>
+           <%= form_for @room, url: rooms_path do |f| %>
             <%= fields_for @entry do |e| %>
               <%= e.hidden_field :user_id, value: @user.id %>
                <% end %>

@@ -9,7 +9,7 @@
             <div class="card-body">
               <h5 class="card-title"><%= community.name %></h5>
               <h5 class="card-title"><%= community.explanation %></h5>
-              <%= link_to "参加する", user_community_post_boards_path(community), class: "btn btn-primary" %>
+              <%= link_to "参加する", community_post_boards_path(community), class: "btn btn-primary" %>
               <div class="comment-index">
                 <div class="bubble">
                   <div><i class="fas fa-comment"></i>
@@ -30,7 +30,7 @@
           <div class="card-body">
             <h5 class="card-title"><%= community.name %></h5>
             <h5 class="card-title"><%= community.explanation %></h5>
-            <%= link_to "参加する", user_community_post_boards_path(community), class: "btn btn-primary" %>
+            <%= link_to "参加する", community_post_boards_path(community), class: "btn btn-primary" %>
             <div class="comment-index">
               <div class="bubble">
                 <div><i class="fas fa-comment"></i>
@@ -176,7 +176,7 @@ body {
 }
 ._a {
   max-width: 300px;
-  margin: 0 auto;  
+  margin: 0 auto;
 }
 ._a a {
   display: flex;

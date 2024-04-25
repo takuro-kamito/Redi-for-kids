@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_04_14_085859) do
+ActiveRecord::Schema.define(version: 2024_04_25_090846) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -91,6 +91,8 @@ ActiveRecord::Schema.define(version: 2024_04_14_085859) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
+    t.index ["name"], name: "index_genres_on_name", unique: true
+    t.index ["name"], name: "index_unique_genres_on_name", unique: true
   end
 
   create_table "messages", force: :cascade do |t|

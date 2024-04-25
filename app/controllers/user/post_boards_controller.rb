@@ -27,7 +27,7 @@ class User::PostBoardsController < ApplicationController
     @post_board.user_id = current_user.id
     if @post_board.save
       flash[:notice] = "成功しました。"
-      redirect_to user_community_post_boards_path(@community)
+      redirect_to community_post_boards_path(@community)
     else
       flash[:alert] = "登録に失敗しました。"
       render :index

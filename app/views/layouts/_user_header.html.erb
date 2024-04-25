@@ -14,28 +14,28 @@
               ようこそ、<%= current_user.name %>さん！
             </div>
           <li>
-            <%= link_to user_user_path(current_user.id), class: 'nav-link text-light' do %>
+            <%= link_to user_path(current_user.id), class: 'nav-link text-light' do %>
               <i class="fas fa-home"></i>My Page
             <% end %>
           </li>
           <!--DMが届くとヘッダーの鈴の色が変わる-->
         <% if unchecked_notifications.any? %>
-          <%= link_to user_notifications_path, class: 'nav-link text-light' do %>
+          <%= link_to notifications_path, class: 'nav-link text-light' do %>
             <i class="far fa-bell fa-lg" style="color: #f00000;"></i> Notice
           <% end %>
         <% else %>
-          <%= link_to  user_notifications_path, class: 'nav-link text-light' do %>
+          <%= link_to  notifications_path, class: 'nav-link text-light' do %>
             <i class="far fa-bell fa-lg"></i> Notice
           <% end %>
         <% end %>
       </li>
           <li>
-            <%=  link_to user_users_path, class: 'nav-link text-light' do %>
+            <%=  link_to users_path, class: 'nav-link text-light' do %>
               <i class="fas fa-users"></i> User
             <% end %>
           </li>
           <li>
-            <%=  link_to user_communities_path ,class: 'nav-link text-light' do %>
+            <%=  link_to communities_path ,class: 'nav-link text-light' do %>
               <i class="fa-regular fa-face-smile"></i> Community
               <% end %>
           </li>
@@ -51,7 +51,7 @@
             <% end %>
           </li>
           <li>
-            <%= link_to user_about_path, class: 'nav-link text-light' do %>
+            <%= link_to about_path, class: 'nav-link text-light' do %>
               <i class="fas fa-link"></i> About
             <% end %>
           </li>

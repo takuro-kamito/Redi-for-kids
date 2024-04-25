@@ -7,7 +7,7 @@
       他のユーザーとのメッセージが見つかりません
     <% end %>
   </h2>
-<%= link_to "ルームへ戻る", user_rooms_path, class: "btn btn-primary btn-sm" %>
+<%= link_to "ルームへ戻る", rooms_path, class: "btn btn-primary btn-sm" %>
 　<div class="message-box">
   　<% if @messages.present? %>
     　<% @messages.reverse.each do |m| %>
@@ -35,7 +35,7 @@
 </div>
 　<% if @message.present? %>
   　<div class="chat-form-box">
-    　<%= form_for @message, url: user_messages_path do |f| %>
+    　<%= form_for @message, url: messages_path do |f| %>
       　<div class="chat-form-group">
         <%= f.text_field :body %>
         <%= f.hidden_field :room_id, value: @room.id %>

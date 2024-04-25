@@ -10,8 +10,11 @@ class Admin::CommunitiesController < ApplicationController
     @communities = Community.all # @communitiesに値をセットする
     @community = Community.new(community_params)
     @community.user_id = params[:user_id]
-    @community.save
+  if@community.save
+      flash[:notice] = "You have updated book successfully."
     redirect_to admin_communities_path(@community)
+  else render :index
+  end
   end
 
   def show
