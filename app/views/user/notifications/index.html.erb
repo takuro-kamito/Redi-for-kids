@@ -7,6 +7,7 @@
 <% else %>
     <p>通知はございません</p>
 <% end %>
+<%= stylesheet_link_tag 'styles' %>
 
 <!--@notifications変数に格納されている通知データに対して、`where.not(visitor_id: current_user.id)`という条件を指定。現在ログインしているユーザーの`visitor_id`（通知の発信者）と異なる行のみを取得-->
 <!--notifications`が存在するかどうかを判定。`exists?`メソッドは、レコードが存在する場合に`true`を返し、存在しない場合に`false`を返します。-->
